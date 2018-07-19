@@ -11,7 +11,16 @@
     "db:seed": "node generate.js",
     "start": "nodemon server/index.js",
     "react-dev": "webpack -d --watch",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint client controllers server models public specs routes"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "verbose": true,
+    "testMatch": [
+      "**/specs/**/*.test.{js,jsx}",
+      "**/__tests__/*.{js}"
+    ]
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -23,12 +32,19 @@
     "react-fontawesome": "^1.6.1"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^1.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-config-airbnb-standard": "^2.1.6",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.10.0",
+    "jest": "^23.4.1",
     "style-loader": "^0.21.0",
     "webpack": "^4.16.1",
     "webpack-cli": "^3.0.8"
