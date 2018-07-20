@@ -19,12 +19,12 @@ const amenitiesSchema = mongoose.Schema({
   name: String
 });
 
-const Amenities = mongoose.model('Amenities', amenitiesSchema);
+const Amenity = mongoose.model('Amenity', amenitiesSchema);
 
-const saveAmenity = (err) => {
+const createAmenity = () => {
   for (let typeProp in AMENITY_DATA) {
     for (let i = 0; i < AMENITY_DATA[typeProp].length; i++) {
-      let newAmenity = new Amenities({
+      let newAmenity = new Amenity({
         type: typeProp,
         name: AMENITY_DATA[typeProp][i]
       });
@@ -33,14 +33,11 @@ const saveAmenity = (err) => {
         if (err) {
           console.log('error saving new Amenity:', err);
         }
-
-        console.log('Saved to the dB!');
+        console.log('Amenity saved to the dB!');
       });
     }
   }
 }
-
-saveAmenity();
 
 const roomSchema = mongoose.Schema({
   room_id: Number,
@@ -53,20 +50,20 @@ const roomSchema = mongoose.Schema({
   baths: Number,
   host_username: String,
   avatar: String,
-  Highlights: [String],
+  highlights: [String],
   short_description: String,
   main_description: String,
-  amenities: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Amenities'}],
+  // amenities: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Amenity'}],
   house_rules: [String],
   house_rules_description: String,
   cancellations: [String],
-  sleeping_arrangements: [Object]
+  sleeping_arrangements: [String]
 });
 
+const Room = mongoose.model('Room', roomSchema);
 
 const createRoom = () => {
   for (let room = 1; room <= 100; room++) {
-
     //average length for a sentence
     let sentenceLength = faker.random.number({ min: 4, max: 10 });    
 
@@ -76,10 +73,10 @@ const createRoom = () => {
       rules.push(faker.lorem.words(sentenceLength));
     }
 
-    let cancellationsLength = faker.random.number({ min: 4, max: 10 });
+    let cancellationsLength = faker.random.number({ min: 4, max: 8});
     let cancelationRules = [];
     for (let j = 0; j < cancellationsLength; j++) {
-      cancelationRules.push(faker.lorem.sentences(sentenceLength));
+      cancelationRules.push(faker.lorem.sentences(faker.random.number({ min: 3, max: 6 })));
     }
     
     let dataItem = {};
@@ -93,41 +90,45 @@ const createRoom = () => {
     dataItem.baths = faker.random.number({ min: 1, max: 4 });
     dataItem.host_username = faker.name.findName();
     dataItem.avatar = faker.image.avatar();
-    // highlight
+    dataItem.highlights = [faker.lorem.words(faker.random.number({ min: 2, max: 4 })), 
+      faker.lorem.sentences(faker.random.number({ min: 4, max: 8 }))];
     dataItem.short_description = faker.lorem.sentences(faker.random.number({ min: 2, max: 4 }));
     dataItem.main_description = faker.lorem.sentences(faker.random.number({ min: 4, max: 10 }));
     //amenities
     dataItem.house_rules = rules;
     dataItem.house_rules_description = faker.lorem.sentences(faker.random.number({ min: 4, max: 8 }));
     dataItem.cancellations = cancelationRules;
-    dataItem.sleepingArrangements = [];
+    dataItem.sleeping_arrangements = [];
 
-    for (let i = 0; i < dataItem.beds; i++) {
+    for (let x = 0; x < dataItem.beds; x++) {
       let bedDetails = '';
       let noOfBed = faker.random.number({ min: 1, max: 2 });
       let typeOfBEd = BED_TYPE[Math.floor(Math.random() * BED_TYPE.length)];
       if (noOfBed === 1) {
         bedDetails = noOfBed + ' ' + typeOfBEd + ' ' + 'bed';
+        console.log(bedDetails);
       } else {
         bedDetails = noOfBed + ' ' + typeOfBEd + ' ' + 'beds';
+        console.log(bedDetails);
+
       }
-      dataItem.sleepingArrangements.push(bedDetails);
+      dataItem.sleeping_arrangements.push(bedDetails);
     }
 
-    
-    // store in local array
-    resultRoom.push(dataItem);
+    let newRoom = new Room(dataItem);
 
-    // add to db
-    // const Booking = mongoose.model('Booking', db.Booking);
-    // const booking = new Booking(dataItem);
-    // booking.save(function(err, booking) {
-    //   if (err) { return console.error(err); }
-    // });
+    newRoom.save((err) => {
+      if (err) {
+        console.log('error saving new Room:', err);
+      }
+      console.log('Room saved to the dB!');
+    });
   }
-
-  return resultRoom;
 }
+
+createAmenity();
+createRoom();
+
 
 
 
