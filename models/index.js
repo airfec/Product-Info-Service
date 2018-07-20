@@ -8,6 +8,10 @@ mongoose.connection.on('connected', function() {
   console.log('Mongoose default connection open to ' + dbURI);
 });
 
+mongoose.connection.once('open', function() {
+  console.log(" we're connected to mongoose!")
+});
+
 // If the connection throws an error
 mongoose.connection.on('error', function(err){
   console.log('Mongoose default connection error: ' + err);
@@ -26,6 +30,5 @@ process.on('SIGINT', function() {
   });
 });
 
-hjghghgf
 
 module.exports = {};
