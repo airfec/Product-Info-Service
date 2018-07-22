@@ -9,5 +9,6 @@
  */
 
 module.exports = {
-  "extends": "airbnb"
+  extends: ["airbnb", "prettier", "prettier/react"],
+  plugins: ["prettier"]
 };
