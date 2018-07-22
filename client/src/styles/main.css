@@ -1,3 +1,26 @@
 body {
-  background: red;
+  --main-bg-color: #fff;
+  --main-font-color: #4a4a4a;
+  --second-color: #ccd1cb;
+  --third-color: #ff2559;
+  --fourth-color: #007c87;
+
+  background-color: var(--main-bg-color);
+  color: var(--main-font-color);
+  font-family: Helvetica, sans-serif;
+}
+
+.section {
+  margin: 0 auto 2rem auto;
+  padding: 1.5rem 2rem 1rem 2rem;
+}
+
+.highlights {
+  border: 1px solid var(--second-color);
+}
+
+.line{
+  border-bottom: 1px solid var(--second-color);
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
