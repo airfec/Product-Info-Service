@@ -3,6 +3,7 @@ import HighlightItem from './HighlightItem.js';
 
 const Highlights = props => {
   let highlightArr = props.highlights;
+
   if (typeof highlightArr !== 'object') {
     highlightArr = ['here', 'test test test test test test'];
   }
@@ -13,4 +14,5 @@ const Highlights = props => {
     </div>
   );
 };
+
 export default Highlights;
