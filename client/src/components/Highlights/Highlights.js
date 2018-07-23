@@ -8,9 +8,11 @@ const Highlights = props => {
     highlightArr = ['here', 'test test test test test test'];
   }
   return (
-    <div className="highlights">
-      <p className="highlight_title">HOME HIGHLIGHTS</p>
-      <HighlightItem highlights={highlightArr} />
+    <div>
+      <div className="highlights">
+        <p className="highlights__title">HOME HIGHLIGHTS</p>
+        <HighlightItem highlights={highlightArr} />
+      </div>
     </div>
   );
 };
