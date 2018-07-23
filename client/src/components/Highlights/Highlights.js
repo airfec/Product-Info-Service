@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
-import FontAwesome from 'react-fontawesome';
+import HighlightItem from './HighlightItem.js';
 
 const Highlights = props => {
+  let highlightArr = props.highlights;
+  if (typeof highlightArr !== 'object') {
+    highlightArr = ['here', 'test test test test test test'];
+  }
   return (
-    <div>
-      <span className=".highlight_title">HIGHLIGHTS</span>
+    <div className="highlights">
+      <p className="highlight_title">HOME HIGHLIGHTS</p>
+      <HighlightItem highlights={highlightArr} />
     </div>
   );
 };
