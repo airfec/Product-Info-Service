@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
 import $ from 'jquery';
+import Summary from './../Summary/Summary.js';
+import Highlights from './../Highlights/Highlights.js';
 
 class Applet extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hello: 'world'
+      room: ''
     };
   }
 
@@ -16,10 +18,11 @@ class Applet extends Component {
     const self = this;
     $.get(`/api/rooms/${id}`, function(data) {
       console.log('success got data', data);
-      // self.setState({ hello: data });
+      self.setState({ room: data });
     }).fail(function() {
       alert('error');
     });
+    // console.log('state now: ', this.state.room);
   }
   // componentWillUnmount(){}
 
@@ -36,9 +39,9 @@ class Applet extends Component {
     return (
       <div>
         <h1>
-          Hello {this.state.hello} <FontAwesome name="rocket" size="2x" />
+          Hello {this.state.room.city} <FontAwesome name="rocket" size="2x" />
         </h1>
-        <div className="summary section">summary</div>
+        <Summary className="summary section" room={this.state.room} />
         <div className="highlights section">highlights</div>
         <div className="details section">
           details

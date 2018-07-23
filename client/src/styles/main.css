@@ -4,10 +4,11 @@ body {
   --second-color: #ccd1cb;
   --third-color: #ff2559;
   --fourth-color: #007c87;
+  --fifth-color: #767676;
 
   background-color: var(--main-bg-color);
   color: var(--main-font-color);
-  font-family: Helvetica, sans-serif;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 .section {
@@ -23,4 +24,23 @@ body {
   border-bottom: 1px solid var(--second-color);
   margin-top: 24px;
   margin-bottom: 24px;
+}
+
+.left {
+  float: left;
+  width: 75%;
+  height: 20px;
+  margin-right: 8px;
+}
+.right {
+  margin-left: 108px;
+}
+
+img {
+  border-radius: 50%;
+  width: 15%;
+}
+
+.highlight_title {
+  color: var(--fifth-color);
 }
