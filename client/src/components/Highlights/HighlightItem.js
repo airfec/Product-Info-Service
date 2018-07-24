@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FontAwesome from 'react-fontawesome';
 
 const HighlightItem = props => {
   const len = props.highlights.length;
@@ -11,9 +12,13 @@ const HighlightItem = props => {
           <span>{props.highlights[i + 1]}</span>
         </div>
         <div>
-          <a href="url">Helpful</a>
+          <a href="url" className="">
+            Helpful <FontAwesome name="thumbs-o-up" size="lg" />
+          </a>
           <span> · </span>
-          <a href="url">Not helpful</a>
+          <a href="url" className="clickable">
+            Not helpful
+          </a>
         </div>
       </span>
     );

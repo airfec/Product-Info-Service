@@ -3,6 +3,9 @@ import FontAwesome from 'react-fontawesome';
 import $ from 'jquery';
 import Summary from './../Summary/Summary.js';
 import Highlights from './../Highlights/Highlights.js';
+// import HighlightItem from '../Highlights/HighlightItem.js';
+import Details from './../Details/Details.js';
+import Sleeping from './../Sleeping Arrangments/Sleeping.js';
 
 class Applet extends Component {
   constructor(props) {
@@ -38,31 +41,20 @@ class Applet extends Component {
   render() {
     return (
       <div>
-        <h1>
-          Hello {this.state.room.city} <FontAwesome name="rocket" size="2x" />
-        </h1>
         <Summary className="summary section" room={this.state.room} />
-        <div className="highlights section">highlights</div>
-        <div className="details section">
-          details
-          <div className="line"> </div>
-        </div>
-        <div className="amenities section">
-          amenities
-          <div className="line"> </div>
-        </div>
-        <div className="sleeping section">
-          sleeping arrangements
-          <div className="line"> </div>
-        </div>
-        <div className="rules section">
-          house rules
-          <div className="line"> </div>
-        </div>
-        <div className="cancelations section">
-          canceletations
-          <div className="line"> </div>
-        </div>
+        <Highlights
+          highlights={this.state.room.highlights}
+          className="highlights section"
+        />
+        <Details room={this.state.room} />
+        <div className="line"> </div>
+        <div className="amenities section">amenities</div>
+        <div className="line"> </div>
+        <Sleeping room={this.state.room} />
+        <div className="rules section">house rules</div>
+        <div className="line"> </div>
+        <div className="cancelations section">canceletations</div>
+        <div className="line"> </div>
       </div>
     );
   }
