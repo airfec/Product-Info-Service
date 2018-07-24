@@ -11,7 +11,7 @@ class Details extends Component {
 
   render() {
     return (
-      <div>
+      <div className="details section">
         <p>{this.props.room.short_description}</p>
         <div className="clickable">
           <a href="url">

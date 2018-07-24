@@ -7,6 +7,7 @@ import Highlights from './../Highlights/Highlights.js';
 import Details from './../Details/Details.js';
 import Sleeping from './../Sleeping Arrangments/Sleeping.js';
 import Rules from './../Rules/Rules.js';
+import Cancelation from './../Cancellations/Cancellation.js';
 
 class Applet extends Component {
   constructor(props) {
@@ -47,14 +48,14 @@ class Applet extends Component {
           className="highlights section"
           highlights={this.state.room.highlights}
         />
-        <Details className="details section" room={this.state.room} />
+        <Details room={this.state.room} />
         <div className="line"> </div>
         <div className="amenities section">amenities</div>
         <div className="line"> </div>
         <Sleeping room={this.state.room} />
         <Rules room={this.state.room} />
         <div className="line"> </div>
-        <div className="cancelations section">canceletations</div>
+        <Cancelation room={this.state.room} />
         <div className="line"> </div>
       </div>
     );
