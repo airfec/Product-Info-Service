@@ -11,8 +11,8 @@ class Sleeping extends Component {
 
   render() {
     return (
-      <div>
-        Sleeping arrangements
+      <div className="sleeping">
+        <div className="sleeping__title">Sleeping arrangements</div>
         <Tile bedroomNo={3} detail={'2 queen beds'} />
         <div className="line"> </div>
       </div>

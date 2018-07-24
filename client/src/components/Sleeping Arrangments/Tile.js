@@ -15,9 +15,9 @@ const Tile = ({ bedroomNo, detail }) => {
   return (
     <div className="tile">
       <div className="tile__body" align="center">
-        <div>{imgArr}</div>
+        <div className="images">{imgArr}</div>
         <div>Bedroom {bedroomNo}</div>
-        <div>{detail}</div>
+        <div className="bed-detail">{detail}</div>
       </div>
     </div>
   );
