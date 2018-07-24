@@ -1,39 +1,39 @@
-const faker = require("faker");
-const mongoose = require("mongoose");
-const db = require("./models/");
-const Amenity = require("./models/Amenity.js");
-const Room = require("./models/Room.js");
+const faker = require('faker');
+const mongoose = require('mongoose');
+const db = require('./models/');
+const Amenity = db.Amenity;
+const Room = db.Room;
 
 const PROPERTY_TYPE = [
-  "Apartment",
-  "Castle",
-  "Cabin",
-  "Apartment",
-  "Entire Home",
-  "Private Room",
-  "Shared Space",
-  "Mill",
-  "Dome House"
+  'Apartment',
+  'Castle',
+  'Cabin',
+  'Apartment',
+  'Entire Home',
+  'Private Room',
+  'Shared Space',
+  'Mill',
+  'Dome House'
 ];
-const BED_TYPE = ["single", "queen", "double", "king"];
+const BED_TYPE = ['single', 'queen', 'double', 'king'];
 
 const AMENITY_DATA = {
   Basic: [
-    "Air conditioning",
-    "Private entrance",
-    "Wifi",
-    "Laptop friendly workspace",
-    "TV",
-    "Heating",
-    "Essentials",
-    "Hot water"
+    'Air conditioning',
+    'Private entrance',
+    'Wifi',
+    'Laptop friendly workspace',
+    'TV',
+    'Heating',
+    'Essentials',
+    'Hot water'
   ],
-  Dining: ["Breakfast", "Kitchen"],
-  "Bed and bath": ["Hair dryer", "Shampoo", "Hangers", "Bed linens", "Washer"],
-  "Safety features": [
-    "Fire extinguisher",
-    "Smoke detector",
-    "Carbon monoxide detector"
+  Dining: ['Breakfast', 'Kitchen'],
+  'Bed and bath': ['Hair dryer', 'Shampoo', 'Hangers', 'Bed linens', 'Washer'],
+  'Safety features': [
+    'Fire extinguisher',
+    'Smoke detector',
+    'Carbon monoxide detector'
   ]
 };
 
@@ -118,13 +118,13 @@ const createRoom = () => {
     dataItem.sleeping_arrangements = [];
 
     for (let x = 0; x < dataItem.beds; x++) {
-      let bedDetails = "";
+      let bedDetails = '';
       const noOfBed = faker.random.number({ min: 1, max: 2 });
       const typeOfBEd = BED_TYPE[Math.floor(Math.random() * BED_TYPE.length)];
       if (noOfBed === 1) {
-        bedDetails = `${noOfBed} ${typeOfBEd} ` + "bed";
+        bedDetails = `${noOfBed} ${typeOfBEd} ` + 'bed';
       } else {
-        bedDetails = `${noOfBed} ${typeOfBEd} ` + "beds";
+        bedDetails = `${noOfBed} ${typeOfBEd} ` + 'beds';
       }
       dataItem.sleeping_arrangements.push(bedDetails);
     }
