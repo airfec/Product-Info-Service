@@ -1,8 +1,8 @@
 const faker = require('faker');
 const mongoose = require('mongoose');
 const db = require('./models/');
-const Amenity = require('./models/Amenity.js');
-const Room = require('./models/Room.js');
+const Amenity = db.Amenity;
+const Room = db.Room;
 
 const PROPERTY_TYPE = [
   'Apartment',
