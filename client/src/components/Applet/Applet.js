@@ -6,12 +6,13 @@ import Highlights from './../Highlights/Highlights.js';
 // import HighlightItem from '../Highlights/HighlightItem.js';
 import Details from './../Details/Details.js';
 import Sleeping from './../Sleeping Arrangments/Sleeping.js';
+import Rules from './../Rules/Rules.js';
 
 class Applet extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      room: ''
+      room: {}
     };
   }
 
@@ -43,15 +44,15 @@ class Applet extends Component {
       <div>
         <Summary className="summary section" room={this.state.room} />
         <Highlights
-          highlights={this.state.room.highlights}
           className="highlights section"
+          highlights={this.state.room.highlights}
         />
-        <Details room={this.state.room} />
+        <Details className="details section" room={this.state.room} />
         <div className="line"> </div>
         <div className="amenities section">amenities</div>
         <div className="line"> </div>
         <Sleeping room={this.state.room} />
-        <div className="rules section">house rules</div>
+        <Rules room={this.state.room} />
         <div className="line"> </div>
         <div className="cancelations section">canceletations</div>
         <div className="line"> </div>

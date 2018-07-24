@@ -67,7 +67,6 @@ body {
   width: 75%;
 }
 
-
 img {
   border-radius: 50%;
   width: 5rem;
@@ -86,8 +85,7 @@ img {
 }
 
 .icons {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  margin-right: 1rem;
 }
 
 .tile-image {
@@ -106,4 +104,8 @@ img {
 
 .bed-detail {
   margin-bottom: 0.5rem;
+}
+
+.awesome {
+  margin-left: 0.3rem;
 }
