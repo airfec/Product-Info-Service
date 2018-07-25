@@ -54,7 +54,10 @@ class HighlightItem extends Component {
                 />
               </span>
               <span> · </span>
-              <span className="highlights__not-helpful">
+              <span
+                className="highlights__not-helpful"
+                onClick={this.handleClick}
+              >
                 <a>Not helpful</a>
               </span>
             </div>

@@ -7,20 +7,37 @@ class Details extends Component {
     this.state = {
       more: false
     };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState({ more: !this.state.more });
   }
 
   render() {
     return (
       <div className="details section">
-        <p>{this.props.room.short_description}</p>
+        {this.state.more ? (
+          <div>
+            <p>{this.props.room.short_description}</p>
+            <p>{this.props.room.main_description}</p>
+            <a onClick={this.handleClick} className="clickable">
+              Hide <FontAwesome name="angle-up" size="lg" />
+            </a>
+          </div>
+        ) : (
+          <div>
+            <p>{this.props.room.short_description}</p>
+            <div className="clickable">
+              <a onClick={this.handleClick}>
+                Read more about the space{' '}
+                <FontAwesome name="angle-down" size="lg" />
+              </a>
+            </div>
+          </div>
+        )}
         <div className="clickable">
-          <a href="url">
-            Read more about the space{' '}
-            <FontAwesome name="angle-down" size="lg" />
-          </a>
-        </div>
-        <div className="clickable">
-          <a href="url">Contact host</a>
+          <a>Contact host</a>
         </div>
       </div>
     );

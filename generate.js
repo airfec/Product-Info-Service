@@ -4,6 +4,14 @@ const db = require('./models/');
 const Amenity = db.Amenity;
 const Room = db.Room;
 
+// console.log('cleared db for re-seed...\n');
+// db.Photo.remove({}).exec(function(err, results) {
+//   if (err) {
+//     console.error(err);
+//     return process.exit(0);
+//   }
+// }
+
 const PROPERTY_TYPE = [
   'Apartment',
   'Castle',
