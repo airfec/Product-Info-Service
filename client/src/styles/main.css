@@ -56,6 +56,20 @@ body {
   border: 1px solid var(--second-color);
 }
 
+.highlights__feedback {
+  color: var(--fifth-color);
+  cursor: pointer;
+}
+
+.highlights__helpful:hover{
+  color: var(--fourth-color);
+  cursor: pointer;
+}
+
+.highlights__not-helpful:hover{
+  color: var(--fourth-color);
+}
+
 .line{
   border-bottom: 1px solid var(--second-color);
   margin-top: 24px;
@@ -108,4 +122,9 @@ img {
 
 .awesome {
   margin-left: 0.3rem;
+}
+
+a:link {
+  color:inherit;
+  text-decoration: none;
 }
