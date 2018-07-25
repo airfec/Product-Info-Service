@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
+import Contact from './Contact.js';
 
 class Details extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      more: false
+      more: false,
+      contactClicked: false
     };
     this.handleClick = this.handleClick.bind(this);
+    this.toggleContactPopup = this.toggleContactPopup.bind(this);
   }
 
   handleClick() {
     this.setState({ more: !this.state.more });
+  }
+
+  toggleContactPopup() {
+    this.setState({
+      contactClicked: !this.state.contactClicked
+    });
   }
 
   render() {
@@ -37,8 +46,11 @@ class Details extends Component {
           </div>
         )}
         <div className="clickable">
-          <a>Contact host</a>
+          <a onClick={this.toggleContactPopup}>Contact host</a>
         </div>
+        {this.state.contactClicked ? (
+          <Contact toggleContactPopup={this.toggleContactPopup} />
+        ) : null}
       </div>
     );
   }

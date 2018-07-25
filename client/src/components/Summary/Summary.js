@@ -17,7 +17,7 @@ const Summary = props => {
   return (
     <div className="summary">
       <div className="sum__top">
-        <div className="__left">
+        <div className="--left">
           <div className="room__type">
             <span>{props.room.type}</span>
           </div>
@@ -28,7 +28,7 @@ const Summary = props => {
             <span>{props.room.city}</span>
           </div>
         </div>
-        <div className="__right" align="right" alt="Avatar">
+        <div className="--right" align="right" alt="Avatar">
           <div>
             <img src={props.room.avatar} />
           </div>
