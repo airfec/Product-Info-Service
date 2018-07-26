@@ -3,7 +3,6 @@ import FontAwesome from 'react-fontawesome';
 
 const Icons = props => {
   let amenitiesArr = props.amenities;
-  console.log('inside icons before', amenitiesArr);
 
   if (typeof amenitiesArr !== 'object') {
     amenitiesArr = [
@@ -16,15 +15,13 @@ const Icons = props => {
       }
     ];
   }
-  console.log('inside icons after', amenitiesArr);
-
   let iconCounter = 1;
   let iconsLeft = [];
   let iconsRight = [];
 
-  for (let i = 0; i < amenitiesArr.length; i++) {
-    let current = amenitiesArr[i];
-    while (iconCounter <= 6 && amenitiesArr.length > 6) {
+  while (iconCounter <= 6 && amenitiesArr.length >= 6) {
+    for (let i = 0; i < amenitiesArr.length; i++) {
+      let current = amenitiesArr[i];
       if (iconCounter <= 3 && current.icon.length > 0) {
         iconsLeft.push(
           <div className={`${current.icon} icon--display__left`}>
@@ -32,14 +29,20 @@ const Icons = props => {
           </div>
         );
         iconCounter++;
-      }
-      if (iconCounter > 3) {
+      } else if (
+        iconCounter > 3 &&
+        iconCounter <= 6 &&
+        current.icon.length > 0
+      ) {
         iconsRight.push(
           <div className={`${current.icon} icon--display__right`}>
+            {'  '}
             {current.name}
           </div>
         );
         iconCounter++;
+      } else {
+        break;
       }
     }
   }
@@ -47,7 +50,7 @@ const Icons = props => {
   return (
     <div className="amenities__icons">
       <div>{iconsLeft}</div>
-      <div>{iconsLeft}</div>
+      <div>{iconsRight}</div>
     </div>
   );
 };
