@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import FontAwesome from 'react-fontawesome';
+import ReactModal from 'react-modal';
+ReactModal.setAppElement('#root');
 
 class PopUp extends Component {
   constructor(props) {
