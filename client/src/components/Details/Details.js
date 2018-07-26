@@ -30,14 +30,14 @@ class Details extends Component {
           <div>
             <p>{this.props.room.short_description}</p>
             <p>{this.props.room.main_description}</p>
-            <a onClick={this.handleClick} className="clickable">
+            <a onClick={this.handleClick} className="toggle-more">
               Hide <FontAwesome name="angle-up" size="lg" />
             </a>
           </div>
         ) : (
           <div>
             <p>{this.props.room.short_description}</p>
-            <div className="clickable">
+            <div className="toggle-more">
               <a onClick={this.handleClick}>
                 Read more about the space{' '}
                 <FontAwesome name="angle-down" size="lg" />
@@ -45,7 +45,7 @@ class Details extends Component {
             </div>
           </div>
         )}
-        <div className="clickable">
+        <div className="toggle-more">
           <a onClick={this.toggleContactPopup}>Contact host</a>
         </div>
         {this.state.contactClicked ? (

@@ -7,7 +7,7 @@ import Highlights from './../Highlights/Highlights.js';
 import Details from './../Details/Details.js';
 import Sleeping from './../Sleeping Arrangments/Sleeping.js';
 import Rules from './../Rules/Rules.js';
-import Cancelation from './../Cancellations/Cancellation.js';
+import Cancellation from './../Cancellations/Cancellation.js';
 import Contact from './../Details/Contact.js';
 
 class Applet extends Component {
@@ -56,7 +56,7 @@ class Applet extends Component {
         <Sleeping room={this.state.room} />
         <Rules room={this.state.room} />
         <div className="line"> </div>
-        <Cancelation room={this.state.room} />
+        <Cancellation room={this.state.room} />
         <div className="line"> </div>
       </div>
     );

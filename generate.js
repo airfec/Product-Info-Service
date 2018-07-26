@@ -25,54 +25,139 @@ const PROPERTY_TYPE = [
 ];
 const BED_TYPE = ['single', 'queen', 'double', 'king'];
 
-const AMENITY_DATA = {
-  Basic: [
-    'Air conditioning',
-    'Private entrance',
-    'Wifi',
-    'Laptop friendly workspace',
-    'TV',
-    'Heating',
-    'Essentials',
-    'Hot water'
-  ],
-  Dining: ['Breakfast', 'Kitchen'],
-  'Bed and bath': ['Hair dryer', 'Shampoo', 'Hangers', 'Bed linens', 'Washer'],
-  'Safety features': [
-    'Fire extinguisher',
-    'Smoke detector',
-    'Carbon monoxide detector'
-  ]
-};
-
-const createAmenity = () => {
-  const amenityArr = [];
-  const keys = Object.keys(AMENITY_DATA);
-  console.log(keys);
-  for (let j = 0; j < keys.length; j++) {
-    for (let i = 0; i < AMENITY_DATA[keys[j]].length; i++) {
-      // console.log('inside', AMENITY_DATA[keys[j]][i]);
-      const newAmenity = new Amenity({
-        type: keys[j],
-        name: AMENITY_DATA[keys[j]][i]
-      });
-      const temp = newAmenity.save();
-      amenityArr.push(temp);
-    }
+const AMENITY_DATA = [
+  { amenityType: 'Basic', name: 'Air conditioning', icon: '', explanation: '' },
+  {
+    amenityType: 'Basic',
+    name: 'Private entrance',
+    icon: '',
+    explanation: 'Separate street or building entrance'
+  },
+  // { amenityType: 'Basic', name: 'Wifi' },
+  // { amenityType: 'Basic', name: 'Laptop friendly workspace', explanation: 'A table or desk with space for a laptop and a chair that’s comfortable to work in'},
+  // { amenityType: 'Basic', name: 'TV' },
+  {
+    type: 'Basic',
+    name: 'Heating',
+    icon: '',
+    explanation: 'Central heating or a heater in the listing'
+  },
+  // {
+  //   amenityType: 'Basic',
+  //   name: 'Essentials',
+  //   explanation: 'Towels, bed sheets, soap, and toilet paper'
+  // },
+  // { amenityType: 'Basic', name: 'Hot water' }
+  { amenityType: 'Dining', name: 'Breakfast', icon: '', explanation: '' },
+  // {
+  // amenityType: 'Dining',
+  //   name: 'Kitchen',
+  //   explanation: 'Space where guests can cook their own meals'
+  // }
+  {
+    amenityType: 'Bed and bath',
+    name: 'Hair dryer',
+    icon: '',
+    explanation: ''
+  },
+  { amenityType: 'Bed and bath', name: 'Shampoo', icon: '', explanation: '' },
+  { amenityType: 'Bed and bath', name: 'Hangers', icon: '', explanation: '' },
+  {
+    amenityType: 'Bed and bath',
+    name: 'Bed linens',
+    icon: '',
+    explanation: ''
+  },
+  { amenityType: 'Bed and bath', name: 'Washer', icon: '', explanation: '' },
+  {
+    amenityType: 'Safety features',
+    name: 'Smoke detector',
+    icon: '',
+    explanation: ''
+  },
+  {
+    amenityType: 'Safety features',
+    name: 'Carbon monoxide detector',
+    icon: '',
+    explanation: ''
   }
+  // { amenityType: 'Facilities', name: 'Free parking on premises' }
+];
 
-  Promise.all(amenityArr)
-    .then(results => {
-      console.log(`${results.length} data saved in dB!`);
-    })
-    .catch(err => {
-      console.error(err);
-    })
-    .then(() => {
-      mongoose.connection.close(() => {
-        process.exit(0);
-      });
-    });
+const defaultAmenities = [
+  { amenityType: 'Basic', name: 'Wifi', icon: 'fa fa-wifi', explanation: '' },
+  {
+    amenityType: 'Basic',
+    name: 'TV',
+    icon: 'fa fa-television',
+    explanation: ''
+  },
+  {
+    amenityType: 'Basic',
+    name: 'Hot water',
+    icon: 'fa fa-shower',
+    explanation: ''
+  },
+  {
+    amenityType: 'Dining',
+    name: 'Kitchen',
+    icon: 'fa fa-cutlery',
+    explanation: 'Space where guests can cook their own meals'
+  },
+  {
+    amenityType: 'Facilities',
+    name: 'Free parking on premises',
+    icon: 'fa fa-car',
+    explanation: ''
+  },
+  {
+    amenityType: 'Basic',
+    name: 'Laptop friendly workspace',
+    icon: 'fa fa-laptop',
+    explanation:
+      'A table or desk with space for a laptop and a chair that’s comfortable to work in'
+  }
+];
+
+// const createAmenity = () => {
+//   const amenityArr = [];
+//   const keys = Object.keys(AMENITY_DATA);
+//   console.log(keys);
+//   for (let j = 0; j < keys.length; j++) {
+//     for (let i = 0; i < AMENITY_DATA[keys[j]].length; i++) {
+//       // console.log('inside', AMENITY_DATA[keys[j]][i]);
+//       const newAmenity = new Amenity({
+//         type: keys[j],
+//         name: AMENITY_DATA[keys[j]][i]
+//       });
+//       const temp = newAmenity.save();
+//       amenityArr.push(temp);
+//     }
+//   }
+
+//   Promise.all(amenityArr)
+//     .then(results => {
+//       console.log(`${results.length} data saved in dB!`);
+//     })
+//     .catch(err => {
+//       console.error(err);
+//     })
+//     .then(() => {
+//       mongoose.connection.close(() => {
+//         process.exit(0);
+//       });
+//     });
+// };
+
+const populateRandomAmenities = num => {
+  let newAmenity = defaultAmenities.slice();
+  let allAmenities = AMENITY_DATA.slice();
+  for (let i = 0; i < num; i++) {
+    let index = Math.floor(Math.random() * allAmenities.length);
+    newAmenity.push(allAmenities[index]);
+    allAmenities.splice(index, 1);
+  }
+  return newAmenity;
 };
 
 const createRoom = () => {
@@ -117,8 +202,10 @@ const createRoom = () => {
     dataItem.main_description = faker.lorem.sentences(
       faker.random.number({ min: 4, max: 10 })
     );
-    // amenities
-    dataItem.house_rules = rules;
+    (dataItem.amenities = populateRandomAmenities(
+      faker.random.number({ min: 6, max: 10 })
+    )),
+      (dataItem.house_rules = rules);
     dataItem.house_rules_description = faker.lorem.sentences(
       faker.random.number({ min: 4, max: 8 })
     );

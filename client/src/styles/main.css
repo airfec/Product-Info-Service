@@ -47,7 +47,7 @@ body {
   padding: 0.5rem 2rem 0.5rem 2rem;
 }
 
-.clickable {
+.toggle-more {
   margin-top: 2rem;
   color: var(--fourth-color);
   cursor: pointer;
