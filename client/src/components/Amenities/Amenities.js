@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
 import PopUp from './../Amenities/PopUp.js';
 import ReactModal from 'react-modal';
+import Icons from './Icons.js';
 
 ReactModal.setAppElement('#root');
 
@@ -83,11 +84,23 @@ class Amenities extends Component {
     let amenitiesArr = this.props.amenities;
 
     if (typeof amenitiesArr !== 'object') {
-      amenitiesArr = ['here', 'test test test test test test'];
+      amenitiesArr = [
+        {
+          _id: '5b591d928f0a5f0970152179',
+          amenityType: 'Bed and bath',
+          name: 'Hair dryer',
+          icon: '',
+          explanation: ''
+        }
+      ];
     }
     return (
       <div>
-        <div className="amenities">
+        <div className="amenities section">
+          <div>Amenities</div>
+          <div className="icons--display">
+            <Icons amenities={amenitiesArr} />
+          </div>
           <a className="toggle-more" onClick={this.handleClickShowAll}>
             {' '}
             Show all {amenitiesArr.length} amenities{' '}

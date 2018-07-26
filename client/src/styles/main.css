@@ -8,7 +8,7 @@ body {
 
   background-color: var(--main-bg-color);
   color: var(--main-font-color);
-  font-family: "Circular", "Trebuchet MS", "Helvetica Neue", sans-serif;
+  font-family: "Helvetica", sans-serif;
 }
 
 .summary {
@@ -240,3 +240,21 @@ a:link {
   padding: 5rem 10rem 5rem 10rem;
 }
 
+.amenities__icons {
+  display: flex;
+}
+
+.icon--display__left {
+  width: 80%;
+  padding-top: .5rem;
+}
+
+.icon--display__right {
+  width: 80%;
+  padding-top: .5rem;
+}
+
+.icons--display {
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
+}
