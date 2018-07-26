@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
+import { totalmem } from 'os';
 
 const Summary = props => {
+  let sleepArr = props.room.sleeping_arrangements;
+
+  if (typeof sleepArr !== 'object') {
+    sleepArr = ['0 here', '0 test test test test test test'];
+  }
+
+  let noOfBeds = sleepArr.reduce((total, room, index) => {
+    total = total + parseInt(room[0]);
+    return total;
+  }, 0);
+
   return (
     <div className="summary">
       <div className="sum__top">
-        <div className="__left">
+        <div className="--left">
           <div className="room__type">
             <span>{props.room.type}</span>
           </div>
@@ -16,7 +28,7 @@ const Summary = props => {
             <span>{props.room.city}</span>
           </div>
         </div>
-        <div className="__right" align="right" alt="Avatar">
+        <div className="--right" align="right" alt="Avatar">
           <div>
             <img src={props.room.avatar} />
           </div>
@@ -35,7 +47,7 @@ const Summary = props => {
           <FontAwesome name="home" size="lg" /> {props.room.beds} bedrooms
         </span>
         <span className="icons">
-          <FontAwesome name="bed" size="lg" /> beds
+          <FontAwesome name="bed" size="lg" /> {noOfBeds} beds
         </span>
         <span className="icons">
           {' '}

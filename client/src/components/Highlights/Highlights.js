@@ -1,20 +1,41 @@
 import React, { Component } from 'react';
 import HighlightItem from './HighlightItem.js';
 
-const Highlights = props => {
-  let highlightArr = props.highlights;
-
-  if (typeof highlightArr !== 'object') {
-    highlightArr = ['here', 'test test test test test test'];
+class Highlights extends Component {
+  constructor(props) {
+    super(props);
   }
-  return (
-    <div>
-      <div className="highlights">
-        <p className="highlights__title">HOME HIGHLIGHTS</p>
-        <HighlightItem highlights={highlightArr} />
+
+  render() {
+    let highlightArr = this.props.highlights;
+    if (typeof highlightArr !== 'object') {
+      highlightArr = ['here', 'test test test test test test'];
+    }
+    return (
+      <div>
+        <div className="highlights">
+          <p className="highlights__title">HOME HIGHLIGHTS</p>
+          <HighlightItem highlights={highlightArr} />
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
+
+// const Highlights = props => {
+//   let highlightArr = props.highlights;
+
+//   if (typeof highlightArr !== 'object') {
+//     highlightArr = ['here', 'test test test test test test'];
+//   }
+//   return (
+//     <div>
+//       <div className="highlights">
+//         <p className="highlights__title">HOME HIGHLIGHTS</p>
+//         <HighlightItem highlights={highlightArr} />
+//       </div>
+//     </div>
+//   );
+// };
 
 export default Highlights;

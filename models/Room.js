@@ -15,10 +15,13 @@ const roomSchema = mongoose.Schema({
   short_description: String,
   main_description: String,
   // amenities: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Amenity'}],
+  amenities: [
+    { amenityType: String, name: String, icon: String, explanation: String }
+  ],
   house_rules: [String],
   house_rules_description: String,
   cancellations: [String],
-  sleeping_arrangements: [String],
+  sleeping_arrangements: [String]
 });
 
 const Room = mongoose.model('Room', roomSchema);

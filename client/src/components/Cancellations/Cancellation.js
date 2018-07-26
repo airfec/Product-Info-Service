@@ -13,7 +13,7 @@ const Cancellation = props => {
     <div className="rules section">
       <div>Cancellations</div>
       <ul>{terms}</ul>
-      <a href="url" className="clickable">
+      <a href="url" className="toggle-more">
         Read more about the policy{' '}
         <FontAwesome name="angle-down" size="lg" className="awesome" />
       </a>

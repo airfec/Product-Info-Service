@@ -13,7 +13,7 @@ const Rules = props => {
     <div className="rules section">
       <div>House Rules</div>
       <ul>{rules}</ul>
-      <a href="url" className="clickable">
+      <a href="url" className="toggle-more">
         Read all rules{' '}
         <FontAwesome name="angle-down" size="lg" className="awesome" />
       </a>
