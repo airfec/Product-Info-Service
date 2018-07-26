@@ -39,7 +39,7 @@ class Contact extends Component {
             <div className="contact__line--whole"> </div>
             <div className="contact__already">
               <span>Already have an Airbnb account?{'    '}</span>
-              <a className="clickable">Log in</a>
+              <a className="toggle-more">Log in</a>
             </div>
           </div>
         </div>
