@@ -26,6 +26,12 @@ const Tile = props => {
     );
     tiles.push(tile);
   }
-  return <div className="tile--display">{tiles}</div>;
+  return (
+    <div className="tile--display">
+      {props.leftArrow ? <div className="fa fa-arrow-circle-o-left" /> : null}
+      {tiles}
+      {props.rightArrow ? <div className="fa fa-arrow-circle-o-right" /> : null}
+    </div>
+  );
 };
 export default Tile;

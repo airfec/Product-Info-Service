@@ -220,9 +220,24 @@ a:link {
 }
 
 .tile {
-  width: 120%
+  width: 100%
 }
 
 tile__inside {
   padding: 0.5rem 2.5rem 0.5rem 2.5rem;
+}
+
+.fa-arrow-circle-o-left {
+  padding-top: 3rem;
+  font-size: 1.5em;
+  padding-left: 2rem;
+  cursor: pointer;
+}
+
+.fa-arrow-circle-o-right {
+  padding-top: 3rem;
+  padding-left: 2rem;
+  padding-right: 3rem;
+  font-size: 1.5em;
+  cursor: pointer;
 }
