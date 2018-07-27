@@ -29,8 +29,6 @@ const Tile = props => {
     tiles.push(tile);
     roomNo++;
   }
-  console.log(props.leftArrow);
-  console.log(props.rightArrow);
 
   return (
     <div className="tile--display">

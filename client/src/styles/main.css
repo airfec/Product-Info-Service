@@ -20,6 +20,11 @@ body {
 }
 .sum__bottom {
   padding: 1.5rem 2.5rem 1rem 2.5rem;
+  display: flex;
+}
+
+.icons {
+  width: 15%;
 }
 
 .room__type {

@@ -8,8 +8,8 @@ class Sleeping extends Component {
     this.state = {
       start: 0,
       end: 2,
-      showRightArrow: true,
-      showLeftArrow: true
+      isRightArrow: true,
+      isLeftArrow: true
     };
     this.handleClickLeftArrow = this.handleClickLeftArrow.bind(this);
     this.handleClickRightArrow = this.handleClickRightArrow.bind(this);
@@ -35,8 +35,8 @@ class Sleeping extends Component {
     let arrangementArr = this.props.room.sleeping_arrangements || [];
     console.log(arrangementArr.length);
     arrangementArr.length > 3
-      ? this.setState({ showLeftArrow: false, showRightArrow: true })
-      : this.setState({ showLeftArrow: false, showRightArrow: false });
+      ? this.setState({ isLeftArrow: false, isRightArrow: true })
+      : this.setState({ isLeftArrow: false, isRightArrow: false });
     // this.state.end < arrangementArr.length
     //   ? this.setState({ showRightArrow: true })
     //   : this.setState({ showRightArrow: false });
@@ -50,7 +50,7 @@ class Sleeping extends Component {
 
       this.setState({ end: newEnd, start: newStart });
       if (this.state.end === arrangementArr.length - 1) {
-        this.setState({ showRightArrow: false });
+        this.setState({ isRightArrow: false });
       }
     }
   }
@@ -61,7 +61,7 @@ class Sleeping extends Component {
       let newEnd = this.state.end - 1;
       this.setState({ start: newStart, end: newEnd });
       if (this.state.start === 0) {
-        this.setState({ showLeftArrow: false });
+        this.setState({ isLeftArrow: false });
       }
     }
   }
@@ -75,8 +75,8 @@ class Sleeping extends Component {
         <div className="sleeping__title">Sleeping arrangements</div>
         <Tile
           detail={displayTiles}
-          rightArrow={this.state.showRightArrow}
-          leftArrow={this.state.showLeftArrow}
+          rightArrow={this.state.isRightArrow}
+          leftArrow={this.state.isLeftArrow}
           onRightArrowClick={this.handleClickRightArrow}
           onLeftArrowClick={this.handleClickLeftArrow}
           start={this.state.start}
