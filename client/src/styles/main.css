@@ -217,10 +217,11 @@ a:link {
 
 .tile--display {
   display: flex;
+  padding-right: 2rem;
 }
 
 .tile {
-  width: 100%
+  width: 30%
 }
 
 tile__inside {
@@ -229,7 +230,7 @@ tile__inside {
 
 .fa-arrow-circle-o-left {
   padding-top: 3rem;
-  font-size: 1.5em;
+  font-size: 2em;
   padding-left: 2rem;
   cursor: pointer;
 }
@@ -238,6 +239,6 @@ tile__inside {
   padding-top: 3rem;
   padding-left: 2rem;
   padding-right: 3rem;
-  font-size: 1.5em;
+  font-size: 2em;
   cursor: pointer;
 }
