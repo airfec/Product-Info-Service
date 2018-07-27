@@ -214,3 +214,15 @@ a:link {
 .fa-times {
   cursor: pointer;
 }
+
+.tile--display {
+  display: flex;
+}
+
+.tile {
+  width: 120%
+}
+
+tile__inside {
+  padding: 0.5rem 2.5rem 0.5rem 2.5rem;
+}
