@@ -258,3 +258,17 @@ a:link {
   padding-bottom: 1.5rem;
   padding-top: 1.5rem;
 }
+
+.single--rule__item {
+  padding-bottom: 0.3rem;
+}
+
+.rules__title {
+  padding-bottom: 1.5rem;
+
+}
+
+.rules__list {
+  padding-bottom: 1.5rem;
+
+}
