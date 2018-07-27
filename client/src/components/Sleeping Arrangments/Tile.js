@@ -4,6 +4,7 @@ import FontAwesome from 'react-fontawesome';
 const Tile = props => {
   let tiles = [];
   // if ()
+  let roomNo = props.start + 1;
   for (let j = 0; j < props.detail.length; j++) {
     let imgArr = [];
     const imgCount = parseInt(props.detail[j][0]);
@@ -15,16 +16,18 @@ const Tile = props => {
       );
       imgArr.push(bedImg);
     }
+
     let tile = (
       <div className="tile">
         <div className="tile__body" align="center">
           <div className="images">{imgArr}</div>
-          <div>Bedroom {j + 1}</div>
+          <div>Bedroom {roomNo}</div>
           <div className="bed-detail">{props.detail[j]}</div>
         </div>
       </div>
     );
     tiles.push(tile);
+    roomNo++;
   }
   console.log(props.leftArrow);
   console.log(props.rightArrow);

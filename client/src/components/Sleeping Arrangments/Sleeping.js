@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Tile from './Tile.js';
+import { timingSafeEqual } from 'crypto';
 
 class Sleeping extends Component {
   constructor(props) {
@@ -78,6 +79,8 @@ class Sleeping extends Component {
           leftArrow={this.state.showLeftArrow}
           onRightArrowClick={this.handleClickRightArrow}
           onLeftArrowClick={this.handleClickLeftArrow}
+          start={this.state.start}
+          end={this.state.end}
         />
 
         <div className="line"> </div>
