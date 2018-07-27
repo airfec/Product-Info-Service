@@ -4,17 +4,18 @@ import Tile from './Tile.js';
 class Sleeping extends Component {
   constructor(props) {
     super(props);
-    console.log('props', this.props.room);
     this.state = {
       start: 0,
       end: 2,
-      showRightArrow: false,
-      showLeftArrow: false
+      showRightArrow: true,
+      showLeftArrow: true
     };
+    this.handleClickLeftArrow = this.handleClickLeftArrow.bind(this);
+    this.handleClickRightArrow = this.handleClickRightArrow.bind(this);
   }
 
   componentDidMount() {
-    this.populateArrows();
+    // this.populateArrows();
     // console.log(this.state.start);
     // console.log(this.state.end);
   }
@@ -31,7 +32,7 @@ class Sleeping extends Component {
 
   populateArrows() {
     let arrangementArr = this.props.room.sleeping_arrangements || [];
-
+    console.log(arrangementArr.length);
     arrangementArr.length > 3
       ? this.setState({ showLeftArrow: false, showRightArrow: true })
       : this.setState({ showLeftArrow: false, showRightArrow: false });
@@ -40,9 +41,29 @@ class Sleeping extends Component {
     //   : this.setState({ showRightArrow: false });
   }
 
-  handleClickRightArrow() {}
+  handleClickRightArrow() {
+    let arrangementArr = this.props.room.sleeping_arrangements || [];
+    if (this.state.end + 1 <= arrangementArr.length - 1) {
+      let newEnd = this.state.end + 1;
+      let newStart = this.state.start + 1;
 
-  handleClickLeftArrow() {}
+      this.setState({ end: newEnd, start: newStart });
+      if (this.state.end === arrangementArr.length - 1) {
+        this.setState({ showRightArrow: false });
+      }
+    }
+  }
+
+  handleClickLeftArrow() {
+    if (this.state.start - 1 >= 0) {
+      let newStart = this.state.start - 1;
+      let newEnd = this.state.end - 1;
+      this.setState({ start: newStart, end: newEnd });
+      if (this.state.start === 0) {
+        this.setState({ showLeftArrow: false });
+      }
+    }
+  }
 
   render() {
     let allTiles = this.props.room.sleeping_arrangements || [];
@@ -55,6 +76,8 @@ class Sleeping extends Component {
           detail={displayTiles}
           rightArrow={this.state.showRightArrow}
           leftArrow={this.state.showLeftArrow}
+          onRightArrowClick={this.handleClickRightArrow}
+          onLeftArrowClick={this.handleClickLeftArrow}
         />
 
         <div className="line"> </div>

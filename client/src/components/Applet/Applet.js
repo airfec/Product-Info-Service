@@ -53,7 +53,7 @@ class Applet extends Component {
         <div className="line"> </div>
         <div className="amenities section">amenities</div>
         <div className="line"> </div>
-        <Sleeping room={this.state.room} />
+        <Sleeping room={this.state.room || []} />
         <Rules room={this.state.room} />
         <div className="line"> </div>
         <Cancellation room={this.state.room} />

@@ -26,11 +26,24 @@ const Tile = props => {
     );
     tiles.push(tile);
   }
+  console.log(props.leftArrow);
+  console.log(props.rightArrow);
+
   return (
     <div className="tile--display">
-      {props.leftArrow ? <div className="fa fa-arrow-circle-o-left" /> : null}
+      {props.leftArrow ? (
+        <div
+          className="fa fa-arrow-circle-o-left"
+          onClick={props.onLeftArrowClick}
+        />
+      ) : null}
       {tiles}
-      {props.rightArrow ? <div className="fa fa-arrow-circle-o-right" /> : null}
+      {props.rightArrow ? (
+        <div
+          className="fa fa-arrow-circle-o-right"
+          onClick={props.onRightArrowClick}
+        />
+      ) : null}
     </div>
   );
 };
