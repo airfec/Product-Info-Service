@@ -8,7 +8,7 @@ body {
 
   background-color: var(--main-bg-color);
   color: var(--main-font-color);
-  font-family: "Circular", "Trebuchet MS", "Helvetica Neue", sans-serif;
+  font-family: "Helvetica", sans-serif;
 }
 
 .summary {
@@ -218,6 +218,49 @@ a:link {
 
 .fa-times {
   cursor: pointer;
+}
+
+.amenity__type {
+  font-size: 125%;
+  padding-bottom: 1.8rem;
+  padding-top: 1.8rem;
+  font-weight: 600;
+}
+
+.amenity__name {
+  padding-bottom: 0.7rem;
+  font-size: 110%;
+
+}
+
+.amenity__exp {
+  font-size: 90%;
+}
+
+
+.ReactModal__Body--open {
+  overflow: hidden;
+  shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  padding: 5rem 10rem 5rem 10rem;
+}
+
+.amenities__icons {
+  display: flex;
+}
+
+.icon--display__left {
+  width: 80%;
+  padding-top: .5rem;
+}
+
+.icon--display__right {
+  width: 80%;
+  padding-top: .5rem;
+}
+
+.icons--display {
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
 }
 
 .tile--display {

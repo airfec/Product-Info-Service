@@ -9,6 +9,7 @@ import Sleeping from './../Sleeping Arrangments/Sleeping.js';
 import Rules from './../Rules/Rules.js';
 import Cancellation from './../Cancellations/Cancellation.js';
 import Contact from './../Details/Contact.js';
+import Amenities from './../Amenities/Amenities.js';
 
 class Applet extends Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class Applet extends Component {
     this.state = {
       room: {}
     };
+    console.log('applet', this.state.room);
   }
 
   // componentWillMount(){}
@@ -42,6 +44,8 @@ class Applet extends Component {
   // }
 
   render() {
+    console.log('inside applet', this.state.room.amenities);
+
     return (
       <div>
         <Summary className="summary section" room={this.state.room} />
@@ -51,7 +55,8 @@ class Applet extends Component {
         />
         <Details room={this.state.room} />
         <div className="line"> </div>
-        <div className="amenities section">amenities</div>
+        {/* <div className="amenities section">amenities</div> */}
+        <Amenities amenities={this.state.room.amenities} />
         <div className="line"> </div>
         <Sleeping room={this.state.room} />
         <Rules room={this.state.room} />

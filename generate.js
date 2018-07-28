@@ -37,7 +37,7 @@ const AMENITY_DATA = [
   // { amenityType: 'Basic', name: 'Laptop friendly workspace', explanation: 'A table or desk with space for a laptop and a chair that’s comfortable to work in'},
   // { amenityType: 'Basic', name: 'TV' },
   {
-    type: 'Basic',
+    amenityType: 'Basic',
     name: 'Heating',
     icon: '',
     explanation: 'Central heating or a heater in the listing'
