@@ -24,7 +24,7 @@ const Icons = props => {
       let current = amenitiesArr[i];
       if (iconCounter <= 3 && current.icon.length > 0) {
         iconsLeft.push(
-          <div className={`${current.icon} icon--display__left`}>
+          <div className={`${current.icon} icon--display__left`} key={i}>
             {current.name}
           </div>
         );
@@ -35,7 +35,7 @@ const Icons = props => {
         current.icon.length > 0
       ) {
         iconsRight.push(
-          <div className={`${current.icon} icon--display__right`}>
+          <div className={`${current.icon} icon--display__right`} key={i}>
             {'  '}
             {current.name}
           </div>

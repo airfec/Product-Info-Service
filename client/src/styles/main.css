@@ -51,6 +51,7 @@ body {
   margin-top: 2rem;
   color: var(--fourth-color);
   cursor: pointer;
+  margin-bottom: 2rem;
 }
 
 .highlights {
@@ -259,16 +260,22 @@ a:link {
   padding-top: 1.5rem;
 }
 
-.single--rule__item {
+.list__item {
   padding-bottom: 0.3rem;
 }
 
-.rules__title {
+.section--title {
   padding-bottom: 1.5rem;
-
 }
 
 .rules__list {
   padding-bottom: 1.5rem;
+}
 
+.rules--explanation {
+  padding-bottom: 1.5rem;
+}
+
+.rules--explanation {
+  padding-top: 2rem;
 }

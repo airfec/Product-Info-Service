@@ -1,24 +1,60 @@
 import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
 
-const Cancellation = props => {
-  let cancellationArr = props.room.cancellations;
-
-  if (typeof cancellationArr !== 'object') {
-    cancellationArr = ['here', 'test test'];
+class Cancellation extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isMoreClicked: false
+    };
+    this.handleClickMore = this.handleClickMore.bind(this);
   }
-  let terms = cancellationArr.map(term => <li>{term}</li>);
 
-  return (
-    <div className="rules section">
-      <div>Cancellations</div>
-      <ul>{terms}</ul>
-      <a href="url" className="toggle-more">
-        Read more about the policy{' '}
-        <FontAwesome name="angle-down" size="lg" className="awesome" />
-      </a>
-    </div>
-  );
-};
+  handleClickMore() {
+    this.setState({ isMoreClicked: !this.state.isMoreClicked });
+  }
+
+  render() {
+    let cancellationArr = this.props.room.cancellations;
+
+    if (typeof cancellationArr !== 'object') {
+      cancellationArr = ['here', 'test test'];
+    }
+
+    let more = cancellationArr.slice(2);
+    let terms = cancellationArr.map((term, index) => (
+      <li key={index} className="list__item">
+        {`-  ${term}`}
+      </li>
+    ));
+
+    return (
+      <div className="cancellation section">
+        <div className="section--title">Cancellations</div>
+        <div className="cancellation__first--line">{cancellationArr[0]}</div>
+        <div className="cancellation__second--line">{cancellationArr[1]}</div>
+
+        {this.state.isMoreClicked ? (
+          <div>
+            <ol>{more}</ol>
+            <div>
+              <a className="toggle-more">Get details</a>
+            </div>
+            <div>
+              <a className="toggle-more" onClick={this.handleClickMore}>
+                Hide policies
+              </a>
+            </div>
+          </div>
+        ) : (
+          <a className="toggle-more" onClick={this.handleClickMore}>
+            Read more about the policy{' '}
+            <FontAwesome name="angle-down" size="lg" className="awesome" />
+          </a>
+        )}
+      </div>
+    );
+  }
+}
 
 export default Cancellation;
