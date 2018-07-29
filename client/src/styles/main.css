@@ -20,6 +20,11 @@ body {
 }
 .sum__bottom {
   padding: 1.5rem 2.5rem 1rem 2.5rem;
+  display: flex;
+}
+
+.icons {
+  width: 15%;
 }
 
 .room__type {
@@ -218,7 +223,6 @@ a:link {
   cursor: pointer;
 }
 
-
 .amenity__type {
   font-size: 125%;
   padding-bottom: 1.8rem;
@@ -260,6 +264,34 @@ a:link {
 .icons--display {
   padding-bottom: 1.5rem;
   padding-top: 1.5rem;
+}
+
+.tile--display {
+  display: flex;
+  padding-right: 2rem;
+}
+
+.tile {
+  width: 20%
+}
+
+tile__inside {
+  padding: 0.5rem 2.5rem 0.5rem 2.5rem;
+}
+
+.fa-arrow-circle-o-left {
+  padding-top: 3rem;
+  font-size: 2em;
+  padding-left: 2rem;
+  cursor: pointer;
+}
+
+.fa-arrow-circle-o-right {
+  padding-top: 3rem;
+  padding-left: 2rem;
+  padding-right: 3rem;
+  font-size: 2em;
+  cursor: pointer;
 }
 
 .list__item {

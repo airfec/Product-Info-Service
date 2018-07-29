@@ -38,21 +38,21 @@ const Summary = props => {
         </div>
       </div>
       <div className="sum__bottom">
-        <span className="icons">
+        <div className="icons">
           {' '}
           <FontAwesome name="users" size="lg" /> {props.room.max_guest} guests
-        </span>
-        <span className="icons">
+        </div>
+        <div className="icons">
           {' '}
           <FontAwesome name="home" size="lg" /> {props.room.beds} bedrooms
-        </span>
-        <span className="icons">
+        </div>
+        <div className="icons">
           <FontAwesome name="bed" size="lg" /> {noOfBeds} beds
-        </span>
-        <span className="icons">
+        </div>
+        <div className="icons">
           {' '}
           <FontAwesome name="bathtub" size="lg" /> {props.room.baths} baths
-        </span>
+        </div>
       </div>
     </div>
   );
