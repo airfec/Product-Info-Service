@@ -19,15 +19,21 @@
     "verbose": true,
     "testMatch": [
       "**/specs/**/*.test.{js,jsx}",
-      "**/__tests__/*.{js}"
+      "**/__tests__/*.{js}",
+      "**/client/src/components/**/*.test.{js,jsx}"
+
     ],
     "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
     "unmockedModulePathPatterns": [
       "react",
       "enzyme",
       "jest-enzyme"
-    ]
+    ],
+    "transformIgnorePatterns": ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"],
+    "testURL": "http://localhost/",
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx"]
   },
+  
   "dependencies": {
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
