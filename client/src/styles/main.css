@@ -56,6 +56,9 @@ body {
   margin-top: 2rem;
   color: var(--fourth-color);
   cursor: pointer;
+  margin-bottom: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .highlights {
@@ -289,4 +292,29 @@ tile__inside {
   padding-right: 3rem;
   font-size: 2em;
   cursor: pointer;
+}
+
+.list__item {
+  padding-bottom: 0.3rem;
+}
+
+.section--title {
+  padding-bottom: 1.5rem;
+}
+
+.rules__list {
+  padding-bottom: 1.5rem;
+}
+
+.rules--explanation {
+  padding-bottom: 1.5rem;
+}
+
+.rules--explanation {
+  padding-top: 2rem;
+}
+
+.cancellation__first--line {
+  font-weight: bold;
+  padding-bottom: 0.5rem;
 }

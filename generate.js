@@ -169,14 +169,14 @@ const createRoom = () => {
     const noOfRules = faker.random.number({ min: 4, max: 10 });
     const rules = [];
     for (let j = 0; j < noOfRules; j++) {
-      rules.push(faker.lorem.words(sentenceLength));
+      rules.push(faker.lorem.words(faker.random.number({ min: 2, max: 4 })));
     }
 
     const cancellationsLength = faker.random.number({ min: 4, max: 8 });
     const cancelationRules = [];
     for (let j = 0; j < cancellationsLength; j++) {
       cancelationRules.push(
-        faker.lorem.sentences(faker.random.number({ min: 3, max: 6 }))
+        faker.lorem.words(faker.random.number({ min: 6, max: 10 }))
       );
     }
 

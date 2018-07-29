@@ -1,24 +1,47 @@
 import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
 
-const Rules = props => {
-  let rulesArr = props.room.house_rules;
-
-  if (typeof rulesArr !== 'object') {
-    rulesArr = ['here', 'test test'];
+class Rules extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isMoreClicked: false
+    };
+    this.handleClickMore = this.handleClickMore.bind(this);
   }
-  let rules = rulesArr.map(rule => <li>{rule}</li>);
 
-  return (
-    <div className="rules section">
-      <div>House Rules</div>
-      <ul>{rules}</ul>
-      <a href="url" className="toggle-more">
-        Read all rules{' '}
-        <FontAwesome name="angle-down" size="lg" className="awesome" />
-      </a>
-    </div>
-  );
-};
+  handleClickMore() {
+    this.setState({ isMoreClicked: !this.state.isMoreClicked });
+  }
+
+  render() {
+    let rulesArr = this.props.room.house_rules;
+
+    if (typeof rulesArr !== 'object') {
+      rulesArr = ['here', 'test test'];
+    }
+    let rules = rulesArr.map((rule, index) => (
+      <div key={index} className="list__item">
+        {rule}
+      </div>
+    ));
+
+    return (
+      <div className="rules section">
+        <div className="section--title">House Rules</div>
+        <div className="rules__list">{rules}</div>
+        <a className="toggle-more" onClick={this.handleClickMore}>
+          Read all rules{' '}
+          <FontAwesome name="angle-down" size="lg" className="awesome" />
+        </a>
+        {this.state.isMoreClicked ? (
+          <div className="rules--explanation">
+            {this.props.room.house_rules_description}
+          </div>
+        ) : null}
+      </div>
+    );
+  }
+}
 
 export default Rules;

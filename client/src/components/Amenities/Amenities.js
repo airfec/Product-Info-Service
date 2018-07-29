@@ -63,13 +63,23 @@ class Amenities extends Component {
     let amenitiesObj = this.formObject(amenitiesArr);
     let renderArr = [];
     for (let type in amenitiesObj) {
-      renderArr.push(<div className="amenity__type">{type}</div>);
+      renderArr.push(
+        <div className="amenity__type" key={type}>
+          {type}
+        </div>
+      );
       for (let i = 0; i < amenitiesObj[type].length; i++) {
         let amenity = amenitiesObj[type][i];
-        renderArr.push(<div className="amenity__name">{amenity.name}</div>);
+        renderArr.push(
+          <div className="amenity__name" key={i}>
+            {amenity.name}
+          </div>
+        );
         if (amenity.explanation.length > 0) {
           renderArr.push(
-            <div className="amenity__exp">{amenity.explanation}</div>
+            <div className="amenity__exp" key={`${i} ${i}`}>
+              {amenity.explanation}
+            </div>
           );
         }
         if (i < amenitiesObj[type].length - 1) {
