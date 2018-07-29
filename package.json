@@ -31,7 +31,7 @@
     ],
     "transformIgnorePatterns": ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"],
     "testURL": "http://localhost/",
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx"]
+    "moduleFileExtensions": ["js", "jsx"]
   },
   
   "dependencies": {
