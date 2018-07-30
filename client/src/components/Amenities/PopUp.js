@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import ReactModal from 'react-modal';
-ReactModal.setAppElement('#root');
+
+if (process.env.NODE_ENV !== 'test') {
+  ReactModal.setAppElement('div');
+}
 
 class PopUp extends Component {
   constructor(props) {

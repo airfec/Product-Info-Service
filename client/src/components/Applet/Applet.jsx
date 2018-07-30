@@ -8,6 +8,8 @@ import Rules from './../Rules/Rules.js';
 import Cancellation from './../Cancellations/Cancellation.js';
 import Contact from './../Details/Contact.js';
 import Amenities from './../Amenities/Amenities.js';
+import $ from 'jquery';
+
 
 class Applet extends Component {
   constructor(props) {
@@ -15,8 +17,24 @@ class Applet extends Component {
     this.state = {
       room: {}
     };
-    console.log('applet', this.state.room);
+    // console.log('applet', this.state.room);
   }
+
+  // componentDidMount() {
+  //   this.getData();
+  //   // console.log('state now: ', this.state.room);
+  // }
+
+  // getData() {
+  //   const id = parseInt(window.location.pathname.split('/').pop());
+  //   const self = this;
+  //   $.get(`/api/rooms/${id}`, function(data) {
+  //     console.log('success got data', data);
+  //     self.setState({ room: data });
+  //   }).fail(function() {
+  //     alert('error');
+  //   });
+  // }
 
   componentDidMount() {
     this.getData();
@@ -27,11 +45,13 @@ class Applet extends Component {
     const self = this;
     fetch(`/api/rooms/${id}`)
       .then(response => response.json())
-      .then(data => this.setState({ room: data }));
+      .then(data => this.setState({ room: data }))
+      .catch(() => {
+        console.log("error")});
   }
 
   render() {
-    console.log('inside applet', this.state.room.amenities);
+    // console.log('inside applet', this.state.room.amenities);
 
     return (
       <div>
@@ -42,6 +62,7 @@ class Applet extends Component {
         />
         <Details room={this.state.room} />
         <div className="line"> </div>
+        {/* <div className="amenities section">amenities</div> */}
         <Amenities amenities={this.state.room.amenities} />
         <div className="line"> </div>
         <Sleeping room={this.state.room} />

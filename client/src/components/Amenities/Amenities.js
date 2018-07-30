@@ -4,7 +4,9 @@ import PopUp from './../Amenities/PopUp.js';
 import ReactModal from 'react-modal';
 import Icons from './Icons.js';
 
-ReactModal.setAppElement('#root');
+if (process.env.NODE_ENV !== 'test') {
+  ReactModal.setAppElement('div');
+}
 
 class Amenities extends Component {
   constructor(props) {
@@ -70,19 +72,22 @@ class Amenities extends Component {
       );
       for (let i = 0; i < amenitiesObj[type].length; i++) {
         let amenity = amenitiesObj[type][i];
+        let keyVal = type + i + '-';
         renderArr.push(
-          <div className="amenity__name" key={i}>
+          <div className="amenity__name" key={keyVal}>
             {amenity.name}
           </div>
         );
         if (amenity.explanation.length > 0) {
+          let keyValue = type + i + '-' + i;
           renderArr.push(
-            <div className="amenity__exp" key={`${i} ${i}`}>
+            <div className="amenity__exp" key={keyValue}>
               {amenity.explanation}
             </div>
           );
         }
         if (i < amenitiesObj[type].length - 1) {
+          let keyLine = i + 'line';
           renderArr.push(<div className="line"> </div>);
         }
       }
