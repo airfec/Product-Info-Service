@@ -15,10 +15,12 @@ class Cancellation extends Component {
   }
 
   render() {
-    let cancellationArr = this.props.room.cancellations;
+    let cancellationArr = [];
 
-    if (typeof cancellationArr !== 'object') {
+    if (typeof this.props.room.cancellation !== 'object') {
       cancellationArr = ['here', 'test test'];
+    } else {
+      cancellationArr = this.props.room.cancellations;
     }
 
     let more = cancellationArr.slice(2);

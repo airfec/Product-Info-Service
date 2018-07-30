@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import FontAwesome from 'react-fontawesome';
-import $ from 'jquery';
 import Summary from './../Summary/Summary.js';
 import Highlights from './../Highlights/Highlights.js';
 // import HighlightItem from '../Highlights/HighlightItem.js';
@@ -10,6 +8,8 @@ import Rules from './../Rules/Rules.js';
 import Cancellation from './../Cancellations/Cancellation.js';
 import Contact from './../Details/Contact.js';
 import Amenities from './../Amenities/Amenities.js';
+import $ from 'jquery';
+
 
 class Applet extends Component {
   constructor(props) {
@@ -17,34 +17,41 @@ class Applet extends Component {
     this.state = {
       room: {}
     };
-    console.log('applet', this.state.room);
+    // console.log('applet', this.state.room);
   }
 
-  // componentWillMount(){}
-  componentDidMount() {
-    const id = parseInt(window.location.pathname.split('/').pop());
-    const self = this;
-    $.get(`/api/rooms/${id}`, function(data) {
-      console.log('success got data', data);
-      self.setState({ room: data });
-    }).fail(function() {
-      alert('error');
-    });
-    // console.log('state now: ', this.state.room);
-  }
-  // componentWillUnmount(){}
-
-  // componentWillReceiveProps(){}
-  // shouldComponentUpdate(){}
-  // componentWillUpdate(){}
-  // componentDidUpdate(){}
-
-  // getRoomInfo() {
-
+  // componentDidMount() {
+  //   this.getData();
+  //   // console.log('state now: ', this.state.room);
   // }
 
+  // getData() {
+  //   const id = parseInt(window.location.pathname.split('/').pop());
+  //   const self = this;
+  //   $.get(`/api/rooms/${id}`, function(data) {
+  //     console.log('success got data', data);
+  //     self.setState({ room: data });
+  //   }).fail(function() {
+  //     alert('error');
+  //   });
+  // }
+
+  componentDidMount() {
+    this.getData();
+  }
+
+  getData() {
+    const id = parseInt(window.location.pathname.split('/').pop());
+    const self = this;
+    fetch(`/api/rooms/${id}`)
+      .then(response => response.json())
+      .then(data => this.setState({ room: data }))
+      .catch(() => {
+        console.log("error")});
+  }
+
   render() {
-    console.log('inside applet', this.state.room.amenities);
+    // console.log('inside applet', this.state.room.amenities);
 
     return (
       <div>

@@ -34,8 +34,12 @@ const Icons = props => {
         iconCounter <= 6 &&
         current.icon.length > 0
       ) {
+        let keyValue = '' + i + ' ' + i;
         iconsRight.push(
-          <div className={`${current.icon} icon--display__right`} key={i}>
+          <div
+            className={`${current.icon} icon--display__right`}
+            key={keyValue}
+          >
             {'  '}
             {current.name}
           </div>

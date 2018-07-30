@@ -10,8 +10,8 @@ const Tile = props => {
     const imgCount = parseInt(props.detail[j][0]);
     for (let i = 0; i < imgCount; i++) {
       let bedImg = (
-        <span className="tile-image icons">
-          <FontAwesome name="bed" size="lg" />
+        <span className="tile-image icons" key={i}>
+          <FontAwesome name="bed" size="lg" key={i} />
         </span>
       );
       imgArr.push(bedImg);
