@@ -6,4 +6,4 @@ import Applet from './components/Applet'
 import './styles/main.css';
 
 
-ReactDOM.render(<Applet />, document.getElementById('Info'));
+ReactDOM.render(<Applet />, document.getElementById('info'));
