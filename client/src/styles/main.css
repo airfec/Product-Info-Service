@@ -52,13 +52,28 @@ body {
   padding: 0.5rem 2rem 0.5rem 2rem;
 }
 
-.toggle-more {
+.details-section {
+  border-bottom: 1px solid var(--second-color);
+}
+
+a.toggle-more {
   margin-top: 2rem;
   color: var(--fourth-color);
   cursor: pointer;
   margin-bottom: 2rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+
+}
+
+.details-text {
+  margin-bottom: 2rem;
+}
+
+div.toggle-more {
+  margin-top: 2rem;
+  color: var(--fourth-color);
+  cursor: pointer;
+  margin-bottom: 2rem;
+
 }
 
 .highlights {
@@ -235,7 +250,7 @@ a:link {
 
 .type-title {
   padding-bottom: 0.5rem;
-  font-size: 125%;
+  font-size: 135%;
   font-weight: 600;
 }
 
@@ -245,8 +260,8 @@ a:link {
   padding-bottom: 1rem; 
 }
 
-.amenity-name {
-  font-size: 110%;
+.amenity__name {
+  font-size: 115%;
 }
 
 
@@ -254,8 +269,9 @@ a:link {
   border-bottom: none;
 }
 
-.exp-name {
-  font-size: 90%;
+.amenity__exp {
+  padding-top: 0.5rem;
+  font-size: 75%;
 }
 
 .ReactModal__Body--open {
@@ -313,6 +329,7 @@ tile__inside {
 
 .list__item {
   padding-bottom: 0.3rem;
+  text-transform: capitalize;
 }
 
 .section--title {

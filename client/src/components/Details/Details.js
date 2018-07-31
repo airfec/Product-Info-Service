@@ -25,7 +25,7 @@ class Details extends Component {
 
   render() {
     return (
-      <div className="details section">
+      <div className="details-section section">
         {this.state.more ? (
           <div>
             <p>{this.props.room.short_description}</p>
@@ -36,9 +36,9 @@ class Details extends Component {
           </div>
         ) : (
           <div>
-            <p>{this.props.room.short_description}</p>
-            <div className="toggle-more">
-              <a onClick={this.handleClick}>
+            <p className="details-text">{this.props.room.short_description}</p>
+            <div>
+              <a onClick={this.handleClick} className="toggle-more">
                 Read more about the space{' '}
                 <FontAwesome name="angle-down" size="lg" />
               </a>

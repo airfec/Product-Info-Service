@@ -58,13 +58,13 @@ class PopUp extends Component {
         let amenity = amenitiesObj[type][i];
         renderArr.push(
           <div className="amenity__name">
-            <p className="amenity-name">{amenity.name}</p>
+            <p className="amenity__name__text">{amenity.name}</p>
           </div>
         );
         if (amenity.explanation.length > 0) {
           renderArr.push(
             <div className="amenity__exp">
-              <p className="exp-name">{amenity.explanation}</p>
+              <p className="amenity__exp__text">{amenity.explanation}</p>
             </div>
           );
         }
