@@ -41,29 +41,31 @@ class Cancellation extends Component {
 
     return (
       <div className="cancellation section">
-        <div className="section--title">Cancellations</div>
-        <div className="cancellation__first--line">{terms[0]}</div>
-        <div className="cancellation__second--line">{terms[1]}</div>
+        <div className="section-wrapper">
+          <div className="section-title">Cancellations</div>
+          <div className="cancellation__first--line">{terms[0]}</div>
+          <div className="cancellation__second--line">{terms[1]}</div>
 
-        {this.state.isMoreClicked ? (
-          <div>
-            <div className="cancellation__more">{capitalizedMore}</div>
-            <div className="cancellation-get-details">
-              <a className="toggle-more">Get details</a>
-            </div>
+          {this.state.isMoreClicked ? (
             <div>
-              <a className="toggle-more" onClick={this.handleClickMore}>
-                Hide policies{' '}
-                <FontAwesome name="angle-up" size="lg" className="awesome" />
-              </a>
+              <div className="cancellation__more">{capitalizedMore}</div>
+              <div className="cancellation-get-details">
+                <a className="toggle-more">Get details</a>
+              </div>
+              <div>
+                <a className="toggle-more" onClick={this.handleClickMore}>
+                  Hide policies{' '}
+                  <FontAwesome name="angle-up" size="lg" className="awesome" />
+                </a>
+              </div>
             </div>
-          </div>
-        ) : (
-          <a className="toggle-more" onClick={this.handleClickMore}>
-            Read more about the policy{' '}
-            <FontAwesome name="angle-down" size="lg" className="awesome" />
-          </a>
-        )}
+          ) : (
+            <a className="toggle-more" onClick={this.handleClickMore}>
+              Read more about the policy{' '}
+              <FontAwesome name="angle-down" size="lg" className="awesome" />
+            </a>
+          )}
+        </div>
       </div>
     );
   }

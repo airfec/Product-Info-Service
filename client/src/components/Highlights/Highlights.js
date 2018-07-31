@@ -12,8 +12,8 @@ class Highlights extends Component {
       highlightArr = ['here', 'test test test test test test'];
     }
     return (
-      <div>
-        <div className="highlights">
+      <div className="highlights section">
+        <div className="section-wrapper">
           <p className="highlights__title">HOME HIGHLIGHTS</p>
           <HighlightItem highlights={highlightArr} />
         </div>

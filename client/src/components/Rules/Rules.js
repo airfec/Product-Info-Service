@@ -35,24 +35,27 @@ class Rules extends Component {
 
     return (
       <div className="rules section">
-        <div className="section--title">House Rules</div>
-        <div className="rules__list">{rules}</div>
-        {this.state.isMoreClicked ? (
-          <div>
-            <div className="rules-toggle__border--on" />
-            <div className="rules--explanation">
-              {this.props.room.house_rules_description}
+        <div className="section-wrapper">
+          <div className="section-title">House Rules</div>
+          <div className="rules__list">{rules}</div>
+          {this.state.isMoreClicked ? (
+            <div>
+              <div className="rules-toggle__border--on" />
+              <div className="rules--explanation">
+                {this.props.room.house_rules_description}
+              </div>
+              <a className="toggle-more" onClick={this.handleClickMore}>
+                Hide{' '}
+                <FontAwesome name="angle-up" size="lg" className="awesome" />
+              </a>
             </div>
+          ) : (
             <a className="toggle-more" onClick={this.handleClickMore}>
-              Hide <FontAwesome name="angle-up" size="lg" className="awesome" />
+              Read all rules{' '}
+              <FontAwesome name="angle-down" size="lg" className="awesome" />
             </a>
-          </div>
-        ) : (
-          <a className="toggle-more" onClick={this.handleClickMore}>
-            Read all rules{' '}
-            <FontAwesome name="angle-down" size="lg" className="awesome" />
-          </a>
-        )}
+          )}
+        </div>
       </div>
     );
   }

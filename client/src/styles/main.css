@@ -50,9 +50,14 @@ body {
 .section {
   /* margin: 0 auto 2rem auto; */
   padding: 0.5rem 2rem 0.5rem 2rem;
+  margin-bottom: 2rem;
 }
 
 .details-section {
+  border-bottom: 1px solid var(--second-color);
+}
+
+.amenities {
   border-bottom: 1px solid var(--second-color);
 }
 
@@ -82,12 +87,18 @@ div.toggle-more {
 }
 .highlights {
   border: 1px solid var(--second-color);
+  border-radius: 4px;
 }
 
 .highlights__feedback {
   color: var(--fifth-color);
   cursor: pointer;
   margin-top: 1rem;
+  display: flex;
+}
+
+.highlights__not-helpful {
+  margin-left: 1rem;
 }
 
 .highlights__helpful:hover{
@@ -119,11 +130,12 @@ div.toggle-more {
 .highlights__title {
   font-weight: bold;
   color: var(--fifth-color);
-  padding: 1.5rem 2rem 1rem 2rem;
+  /* padding: 1.5rem 2rem 1rem 2rem; */
 }
 
 .tile {
   border: 1px solid var(--second-color);
+  border-radius: 3px;
   width: 20%;
   margin-left: 2rem;
 }
@@ -136,9 +148,10 @@ div.toggle-more {
   margin-bottom: 2rem;
 }
 
-.sleeping__title {
-  margin-left: 2rem;
+.section-title {
   margin-bottom: 2rem;
+  font-size: 16px !important;
+  font-weight: 800;
 }
 
 .images {
@@ -170,9 +183,9 @@ a:link {
   color: white;
 }
 
-.fa-google {
-
-}
+/* .details-section .section {
+  border-bottom: 1px solid var(--second-color);
+} */
 
 .fa-envelope-o {
   background: #FF5A5F;
@@ -287,22 +300,29 @@ a:link {
   /* shadow: 1px 2px 4px rgba(0, 0, 0, .5); */
   padding: 5rem 10rem 5rem 10rem;
 }
-.icons--display {
+.icons-display {
   padding-bottom: 1.5rem;
-  padding-top: 1.5rem;
+  /* padding-top: 1.5rem; */
 }
 
 div.amenities-single-icon {
   display: flex;
-  width: 30%,
+  /* width: 30%; */
+  margin-bottom: 1rem;
+  
 }
 
+div.amenities-single-icon.fa {
+  margin-top: 0.3rem;
+  align-items: center;
+}
 .amenities__icons {
   display: flex;
 }
 
 .amenity-name__icon {
-  width: 90%;
+  width: 15rem;
+  /* margin-bottom: 0.2rem; */
   /* float: right; */
 }
 
@@ -347,9 +367,6 @@ tile__inside {
   /* text-transform: capitalize; */
 }
 
-.section--title {
-  padding-bottom: 1.5rem;
-}
 
 .rules__list {
   padding-bottom: 1.5rem;
@@ -361,6 +378,10 @@ tile__inside {
 
 .rules--explanation {
   padding-top: 2rem;
+}
+
+.rules {
+  border-bottom: 1px solid var(--second-color);
 }
 
 .cancellation__first--line {
@@ -379,4 +400,12 @@ tile__inside {
 
 .cancellation-get-details{
   margin-bottom: 1.5rem;
+}
+
+.cancellation {
+  border-bottom: 1px solid var(--second-color);
+}
+
+.sleeping {
+  border-bottom: 1px solid var(--second-color);
 }

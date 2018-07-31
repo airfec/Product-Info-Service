@@ -62,12 +62,9 @@ class Applet extends Component {
         <Details room={this.state.room} />
         {/* <div className="amenities section">amenities</div> */}
         <Amenities amenities={this.state.room.amenities} />
-        <div className="line"> </div>
         <Sleeping room={this.state.room} />
         <Rules room={this.state.room} />
-        <div className="line"> </div>
         <Cancellation room={this.state.room} />
-        <div className="line"> </div>
       </div>
     );
   }

@@ -71,19 +71,19 @@ class Sleeping extends Component {
     let displayTiles = allTiles.slice(this.state.start, this.state.end + 1);
 
     return (
-      <div className="sleeping">
-        <div className="sleeping__title">Sleeping arrangements</div>
-        <Tile
-          detail={displayTiles}
-          rightArrow={this.state.isRightArrow}
-          leftArrow={this.state.isLeftArrow}
-          onRightArrowClick={this.handleClickRightArrow}
-          onLeftArrowClick={this.handleClickLeftArrow}
-          start={this.state.start}
-          end={this.state.end}
-        />
-
-        <div className="line"> </div>
+      <div className="sleeping section">
+        <div className="section-wrapper">
+          <div className="section-title">Sleeping arrangements</div>
+          <Tile
+            detail={displayTiles}
+            rightArrow={this.state.isRightArrow}
+            leftArrow={this.state.isLeftArrow}
+            onRightArrowClick={this.handleClickRightArrow}
+            onLeftArrowClick={this.handleClickLeftArrow}
+            start={this.state.start}
+            end={this.state.end}
+          />
+        </div>
       </div>
     );
   }
