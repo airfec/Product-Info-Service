@@ -51,7 +51,6 @@ class Applet extends Component {
   }
 
   render() {
-    // console.log('inside applet', this.state.room.amenities);
 
     return (
       <div>

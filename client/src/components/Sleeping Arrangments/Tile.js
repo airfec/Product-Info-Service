@@ -3,7 +3,6 @@ import FontAwesome from 'react-fontawesome';
 
 const Tile = props => {
   let tiles = [];
-  // if ()
   let roomNo = props.start + 1;
   for (let j = 0; j < props.detail.length; j++) {
     let imgArr = [];

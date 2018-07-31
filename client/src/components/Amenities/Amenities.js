@@ -85,85 +85,9 @@ class Amenities extends Component {
       );
     });
 
-    // for (let type in amenitiesObj) {
-    //   renderArr.push(
-    //     <div className="amenity__type" key={type}>
-    //       {type}
-    //     </div>
-    //   );
-    //   for (let i = 0; i < amenitiesObj[type].length; i++) {
-    //     let amenity = amenitiesObj[type][i];
-    //     let keyVal = type + i + '-';
-    //     renderArr.push(
-    //       <div className="amenity__name" key={keyVal}>
-    //         {amenity.name}
-    //       </div>
-    //     );
-    //     if (amenity.explanation.length > 0) {
-    //       let keyValue = type + i + '-' + i;
-    //       renderArr.push(
-    //         <div className="amenity__exp" key={keyValue}>
-    //           {amenity.explanation}
-    //         </div>
-    //       );
-    //     }
-    //     if (i < amenitiesObj[type].length - 1) {
-    //       let keyLine = i + 'line';
-    //       renderArr.push(<div className="line"> </div>);
-    //     }
-    //   }
-    // }
-    console.log(renderArr);
     return renderArr;
   }
 
-  /*
-  renderModal() {
-    let amenitiesArr = this.props.amenities;
-    console.log('popup render', this.props.amenities);
-
-    if (typeof amenitiesArr !== 'object') {
-      amenitiesArr = [
-        {
-          _id: '5b591d928f0a5f0970152179',
-          amenityType: 'Bed and bath',
-          name: 'Hair dryer',
-          icon: '',
-          explanation: ''
-        }
-      ];
-    }
-
-    let amenitiesObj = this.formObject(amenitiesArr);
-    console.log('am', amenitiesObj);
-    let renderArr = [];
-    for (let type in amenitiesObj) {
-      renderArr.push(
-        <div className="amenity__type" key={type}>
-          {type}
-        </div>
-      );
-      for (let i = 0; i < amenitiesObj[type].length; i++) {
-        let amenity = amenitiesObj[type][i];
-        let keyVal = type + i + '-';
-        renderArr.push(
-          <div className="amenity__name" key={keyVal}>
-            {amenity.name}
-          </div>
-        );
-        if (amenity.explanation.length > 0) {
-          let keyValue = type + i + '-' + i;
-          renderArr.push(
-            <div className="amenity__exp" key={keyValue}>
-              {amenity.explanation}
-            </div>
-          );
-        }
-      }
-    }
-    return renderArr;
-  }
-  */
   render() {
     let amenitiesArr = this.props.amenities;
 

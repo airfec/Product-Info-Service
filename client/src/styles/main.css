@@ -314,11 +314,6 @@ div.amenities-single-icon {
   width: 30%
 }
 
-
-
-
-
-
 .tile--display {
   display: flex;
   padding-right: 2rem;
@@ -371,4 +366,17 @@ tile__inside {
 .cancellation__first--line {
   font-weight: bold;
   padding-bottom: 0.5rem;
+  /* text-transform: capitalize; */
+}
+
+.cancellation__second--line {
+  padding-bottom: 1.5rem;
+  /* text-transform: capitalize; */
+}
+.cancellation__more {
+  margin-bottom: 1.5rem;
+}
+
+.cancellation-get-details{
+  margin-bottom: 1.5rem;
 }
