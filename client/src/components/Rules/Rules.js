@@ -30,15 +30,21 @@ class Rules extends Component {
       <div className="rules section">
         <div className="section--title">House Rules</div>
         <div className="rules__list">{rules}</div>
-        <a className="toggle-more" onClick={this.handleClickMore}>
-          Read all rules{' '}
-          <FontAwesome name="angle-down" size="lg" className="awesome" />
-        </a>
         {this.state.isMoreClicked ? (
-          <div className="rules--explanation">
-            {this.props.room.house_rules_description}
+          <div>
+            <div className="rules--explanation">
+              {this.props.room.house_rules_description}
+            </div>
+            <a className="toggle-more" onClick={this.handleClickMore}>
+              Hide <FontAwesome name="angle-up" size="lg" className="awesome" />
+            </a>
           </div>
-        ) : null}
+        ) : (
+          <a className="toggle-more" onClick={this.handleClickMore}>
+            Read all rules{' '}
+            <FontAwesome name="angle-down" size="lg" className="awesome" />
+          </a>
+        )}
       </div>
     );
   }
