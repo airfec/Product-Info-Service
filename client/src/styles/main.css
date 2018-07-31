@@ -223,27 +223,39 @@ a:link {
   cursor: pointer;
 }
 
-.amenity__type {
+.ReactModal__Content--after-open {
+  width: 40rem;
+  box-align: center;
+}
+.popup-wrapper {
+  font-family: "Helvetica", sans-serif;
+  margin: 2rem 2rem 2rem 2rem;
+}
+
+
+.type-title {
+  padding-bottom: 0.5rem;
   font-size: 125%;
-  padding-bottom: 1.8rem;
-  padding-top: 1.8rem;
   font-weight: 600;
 }
 
 .amenity__name {
-  padding-bottom: 0.7rem;
-  font-size: 110%;
-
+  border-bottom: 1px solid var(--second-color);
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem; 
 }
 
-.amenity__exp {
+.amenity-name {
+  font-size: 110%;
+}
+
+.exp-name {
   font-size: 90%;
 }
 
-
 .ReactModal__Body--open {
   overflow: hidden;
-  shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  /* shadow: 1px 2px 4px rgba(0, 0, 0, .5); */
   padding: 5rem 10rem 5rem 10rem;
 }
 
