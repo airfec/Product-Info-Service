@@ -238,6 +238,7 @@ a:link {
 
 .contact__inner {
   position: absolute;
+  width: 500px;
   left: 15%;
   right: 15%;
   top: 15%;
@@ -247,7 +248,7 @@ a:link {
 }
 
 .contact__buttons {
-  padding: 3rem 2rem 2rem 2.5rem;
+  padding: 3.5rem 3rem 3rem 3.5rem;
 
 }
 
