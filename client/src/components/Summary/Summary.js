@@ -30,7 +30,7 @@ const Summary = props => {
         </div>
         <div className="--right" align="right" alt="Avatar">
           <div>
-            <img src={props.room.avatar} />
+            <img src={props.room.avatar} className="avatar-image" />
           </div>
           <div>
             <p>{props.room.host_username}</p>
