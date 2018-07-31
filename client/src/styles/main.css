@@ -249,6 +249,11 @@ a:link {
   font-size: 110%;
 }
 
+
+.amenity__type .amenity__name:last-of-type {
+  border-bottom: none;
+}
+
 .exp-name {
   font-size: 90%;
 }
