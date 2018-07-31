@@ -76,6 +76,10 @@ div.toggle-more {
 
 }
 
+.fa {
+  margin-right: 0.5rem;
+  width: 1.5rem;
+}
 .highlights {
   border: 1px solid var(--second-color);
 }
@@ -247,6 +251,10 @@ a:link {
   margin: 2rem 2rem 2rem 2rem;
 }
 
+.rules-toggle__border--on {
+  width: 5rem;
+  border-bottom: 1px solid var(--second-color);
+}
 
 .type-title {
   padding-bottom: 0.5rem;
@@ -279,25 +287,37 @@ a:link {
   /* shadow: 1px 2px 4px rgba(0, 0, 0, .5); */
   padding: 5rem 10rem 5rem 10rem;
 }
+.icons--display {
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
+}
+
+div.amenities-single-icon {
+  display: flex;
+  width: 30%,
+}
 
 .amenities__icons {
   display: flex;
 }
 
-.icon--display__left {
-  width: 80%;
-  padding-top: .5rem;
+.amenity-name__icon {
+  width: 90%;
+  /* float: right; */
 }
 
-.icon--display__right {
-  width: 80%;
-  padding-top: .5rem;
+.amenities-left {
+  width: 30%
 }
 
-.icons--display {
-  padding-bottom: 1.5rem;
-  padding-top: 1.5rem;
+.amenities-right {
+  width: 30%
 }
+
+
+
+
+
 
 .tile--display {
   display: flex;
@@ -329,7 +349,7 @@ tile__inside {
 
 .list__item {
   padding-bottom: 0.3rem;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
 }
 
 .section--title {

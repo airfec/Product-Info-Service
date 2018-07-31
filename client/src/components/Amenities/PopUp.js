@@ -32,7 +32,6 @@ class PopUp extends Component {
 
   render() {
     let amenitiesArr = this.props.amenities;
-    console.log('popup render', this.props.amenities);
 
     if (typeof amenitiesArr !== 'object') {
       amenitiesArr = [

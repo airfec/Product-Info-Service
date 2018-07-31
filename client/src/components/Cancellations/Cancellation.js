@@ -7,6 +7,7 @@ class Cancellation extends Component {
     this.state = {
       isMoreClicked: false
     };
+    console.log('can', this.props.room);
     this.handleClickMore = this.handleClickMore.bind(this);
   }
 
@@ -15,13 +16,13 @@ class Cancellation extends Component {
   }
 
   render() {
-    let cancellationArr = [];
+    let cancellationArr = this.props.room.cancellation || [];
 
-    if (typeof this.props.room.cancellation !== 'object') {
-      cancellationArr = ['here', 'test test'];
-    } else {
-      cancellationArr = this.props.room.cancellations;
-    }
+    // if (typeof this.props.room.cancellation !== 'object') {
+    //   cancellationArr = ['here', 'test test'];
+    // } else {
+    //   cancellationArr = this.props.room.cancellations;
+    // }
 
     let more = cancellationArr.slice(2);
     let terms = cancellationArr.map((term, index) => (

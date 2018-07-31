@@ -181,7 +181,7 @@ class Amenities extends Component {
     return (
       <div>
         <div className="amenities section">
-          <div>Amenities</div>
+          <div className="section-title">Amenities</div>
           <div className="icons--display">
             <Icons amenities={amenitiesArr} />
           </div>
