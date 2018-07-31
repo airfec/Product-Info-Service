@@ -1,16 +1,8 @@
 const faker = require('faker');
 const mongoose = require('mongoose');
 const db = require('./models/');
-const Amenity = db.Amenity;
+// const Amenity = db.Amenity;
 const Room = db.Room;
-
-// console.log('cleared db for re-seed...\n');
-// db.Photo.remove({}).exec(function(err, results) {
-//   if (err) {
-//     console.error(err);
-//     return process.exit(0);
-//   }
-// }
 
 const PROPERTY_TYPE = [
   'Apartment',
@@ -33,27 +25,16 @@ const AMENITY_DATA = [
     icon: '',
     explanation: 'Separate street or building entrance'
   },
-  // { amenityType: 'Basic', name: 'Wifi' },
-  // { amenityType: 'Basic', name: 'Laptop friendly workspace', explanation: 'A table or desk with space for a laptop and a chair that’s comfortable to work in'},
-  // { amenityType: 'Basic', name: 'TV' },
+
   {
     amenityType: 'Basic',
     name: 'Heating',
     icon: '',
     explanation: 'Central heating or a heater in the listing'
   },
-  // {
-  //   amenityType: 'Basic',
-  //   name: 'Essentials',
-  //   explanation: 'Towels, bed sheets, soap, and toilet paper'
-  // },
-  // { amenityType: 'Basic', name: 'Hot water' }
+
   { amenityType: 'Dining', name: 'Breakfast', icon: '', explanation: '' },
-  // {
-  // amenityType: 'Dining',
-  //   name: 'Kitchen',
-  //   explanation: 'Space where guests can cook their own meals'
-  // }
+
   {
     amenityType: 'Bed and bath',
     name: 'Hair dryer',
@@ -81,7 +62,6 @@ const AMENITY_DATA = [
     icon: '',
     explanation: ''
   }
-  // { amenityType: 'Facilities', name: 'Free parking on premises' }
 ];
 
 const defaultAmenities = [
@@ -118,36 +98,6 @@ const defaultAmenities = [
       'A table or desk with space for a laptop and a chair that’s comfortable to work in'
   }
 ];
-
-// const createAmenity = () => {
-//   const amenityArr = [];
-//   const keys = Object.keys(AMENITY_DATA);
-//   console.log(keys);
-//   for (let j = 0; j < keys.length; j++) {
-//     for (let i = 0; i < AMENITY_DATA[keys[j]].length; i++) {
-//       // console.log('inside', AMENITY_DATA[keys[j]][i]);
-//       const newAmenity = new Amenity({
-//         type: keys[j],
-//         name: AMENITY_DATA[keys[j]][i]
-//       });
-//       const temp = newAmenity.save();
-//       amenityArr.push(temp);
-//     }
-//   }
-
-//   Promise.all(amenityArr)
-//     .then(results => {
-//       console.log(`${results.length} data saved in dB!`);
-//     })
-//     .catch(err => {
-//       console.error(err);
-//     })
-//     .then(() => {
-//       mongoose.connection.close(() => {
-//         process.exit(0);
-//       });
-//     });
-// };
 
 const populateRandomAmenities = num => {
   let newAmenity = defaultAmenities.slice();
@@ -243,5 +193,10 @@ const createRoom = () => {
     });
 };
 
-createRoom();
-// createAmenity();
+db.Room.remove({}).exec(function(err, results) {
+  if (err) {
+    console.error(err);
+    return process.exit(0);
+  }
+  createRoom();
+});
