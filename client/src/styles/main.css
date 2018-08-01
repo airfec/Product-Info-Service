@@ -160,17 +160,23 @@ div.toggle-more {
 .tile {
   border: 1px solid var(--second-color);
   border-radius: 3px;
-  width: 20%;
-  margin-left: 2rem;
-
+  width: 15%;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  min-width: 100px;
+  max-width: 15%;
 }
 
+
 .icons {
-  margin-right: 1rem;
+  /* margin-right: 1rem; */
 }
 
 .tile-image {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  width: 30%;
+  margin: auto;
+
 }
 .section-wrapper {
 padding-bottom: 1.5rem;
@@ -184,8 +190,8 @@ padding-bottom: 1.5rem;
 }
 
 .images {
-  margin-bottom: 1.5rem;
   margin-top: 1rem;
+  display: flex;
 }
 
 .bed-detail {
@@ -369,11 +375,6 @@ div.amenities-single-icon.fa {
   padding-right: 2rem;
 }
 
-.tile {
-  width: 20%;
-  min-width: 100px;
-}
-
 tile__inside {
   padding: 0.5rem 2.5rem 0.5rem 2.5rem;
 }
@@ -381,14 +382,12 @@ tile__inside {
 .fa-arrow-circle-o-left {
   padding-top: 3rem;
   font-size: 2em;
-  padding-left: 2rem;
   cursor: pointer;
 }
 
 .fa-arrow-circle-o-right {
   padding-top: 3rem;
-  padding-left: 2rem;
-  padding-right: 3rem;
+  padding-left: 0.5rem;
   font-size: 2em;
   cursor: pointer;
 }
@@ -439,4 +438,8 @@ tile__inside {
 
 .sleeping {
   border-bottom: 1px solid var(--second-color);
+}
+
+.bedroom-no {
+  margin-top: 1rem;
 }
