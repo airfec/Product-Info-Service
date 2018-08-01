@@ -116,6 +116,7 @@ div.toggle-more {
   border-radius: 4px;
   margin-left: 2rem;
   margin-right: 2rem;
+  padding-bottom: 1rem;
 }
 
 .highlights__feedback {
