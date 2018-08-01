@@ -104,26 +104,28 @@ class Amenities extends Component {
     }
     return (
       <div className="amenities section">
-        <div className="section-title">Amenities</div>
-        <div className="icons-display">
-          <Icons amenities={amenitiesArr} />
+        <div className="section-wrapper">
+          <div className="section-title">Amenities</div>
+          <div className="icons-display">
+            <Icons amenities={amenitiesArr} />
+          </div>
+          <a className="toggle-more" onClick={this.handleClickShowAll}>
+            {' '}
+            Show all {amenitiesArr.length} amenities{' '}
+          </a>
+          <ReactModal
+            isOpen={this.state.showPopUp}
+            onClose={() => this.handleClosePopUp()}
+          >
+            <i
+              className="fa fa-times"
+              aria-hidden="true"
+              size="lg"
+              onClick={() => this.handleClosePopUp()}
+            />
+            <div>{this.renderModal()}</div>
+          </ReactModal>
         </div>
-        <a className="toggle-more" onClick={this.handleClickShowAll}>
-          {' '}
-          Show all {amenitiesArr.length} amenities{' '}
-        </a>
-        <ReactModal
-          isOpen={this.state.showPopUp}
-          onClose={() => this.handleClosePopUp()}
-        >
-          <i
-            className="fa fa-times"
-            aria-hidden="true"
-            size="lg"
-            onClick={() => this.handleClosePopUp()}
-          />
-          <div>{this.renderModal()}</div>
-        </ReactModal>
       </div>
     );
   }

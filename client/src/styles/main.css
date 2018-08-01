@@ -16,15 +16,26 @@ body {
 }
 
 .sum__top {
-  padding: 1.5rem 2rem 1rem 2rem;
+  padding: 1.5rem 0rem 1rem 0rem;
+  display: flex;
 }
 .sum__bottom {
-  padding: 1.5rem 2.5rem 1rem 2.5rem;
+  padding: 1.5rem 0rem 1rem 0rem;
   display: flex;
 }
 
-.icons {
-  width: 15%;
+.sum__top--left {
+  width: 80%;
+}
+.sum__top--right{
+  margin-left: 3rem;
+  /* float: right; */
+  text-align: center;
+}
+
+.sum-single-icon {
+  display: flex;
+  margin-right: 1rem;
 }
 
 .room__type {
@@ -33,10 +44,14 @@ body {
   letter-spacing: normal;
 }
 
-.room__title {
+.room-title{
+  text-transform: capitalize;
+}
+
+/* .room__title {
   font-size: 2.5rem;
   font-weight: bold;
-}
+} */
 
 .room__city {
   font-size: 1.2rem;
@@ -50,7 +65,7 @@ body {
 .section {
   /* margin: 0 auto 2rem auto; */
   padding: 0.5rem 2rem 0.5rem 2rem;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
 }
 
 .details-section {
@@ -62,11 +77,19 @@ body {
 }
 
 a.toggle-more {
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
   color: var(--fourth-color);
   cursor: pointer;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
 
+}
+
+a.toggle-more.details-toggle {
+  margin-bottom: 2rem;
+}
+
+.contact-host-link {
+  margin-top: 2rem; 
 }
 
 .details-text {
@@ -74,10 +97,10 @@ a.toggle-more {
 }
 
 div.toggle-more {
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
   color: var(--fourth-color);
   cursor: pointer;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
 
 }
 
@@ -88,6 +111,8 @@ div.toggle-more {
 .highlights {
   border: 1px solid var(--second-color);
   border-radius: 4px;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 .highlights__feedback {
@@ -124,7 +149,6 @@ div.toggle-more {
 .avatar-image {
   border-radius: 50%;
   width: 5rem;
-
 }
 
 .highlights__title {
@@ -138,6 +162,7 @@ div.toggle-more {
   border-radius: 3px;
   width: 20%;
   margin-left: 2rem;
+
 }
 
 .icons {
@@ -147,9 +172,13 @@ div.toggle-more {
 .tile-image {
   margin-bottom: 2rem;
 }
+.section-wrapper {
+padding-bottom: 1.5rem;
+}
 
 .section-title {
-  margin-bottom: 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
   font-size: 16px !important;
   font-weight: 800;
 }
@@ -341,7 +370,8 @@ div.amenities-single-icon.fa {
 }
 
 .tile {
-  width: 20%
+  width: 20%;
+  min-width: 100px;
 }
 
 tile__inside {

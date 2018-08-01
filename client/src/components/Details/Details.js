@@ -41,14 +41,17 @@ class Details extends Component {
                 {this.props.room.short_description}
               </p>
               <div>
-                <a onClick={this.handleClick} className="toggle-more">
+                <a
+                  onClick={this.handleClick}
+                  className="toggle-more details-toggle"
+                >
                   Read more about the space{' '}
                   <FontAwesome name="angle-down" size="lg" />
                 </a>
               </div>
             </div>
           )}
-          <div className="toggle-more">
+          <div className="toggle-more contact-host-link">
             <a onClick={this.toggleContactPopup}>Contact host</a>
           </div>
           {this.state.contactClicked ? (
