@@ -9,9 +9,9 @@ const Tile = props => {
     const imgCount = parseInt(props.detail[j][0]);
     for (let i = 0; i < imgCount; i++) {
       let bedImg = (
-        <span className="tile-image icons" key={`${i}-tile-image icons`}>
+        <div className="tile-image icons" key={`${i}-tile-image icons`}>
           <FontAwesome name="bed" size="lg" key={`${i}-icon`} />
-        </span>
+        </div>
       );
       imgArr.push(bedImg);
     }
@@ -22,7 +22,9 @@ const Tile = props => {
           <div className="images" key={`${j}-images`}>
             {imgArr}
           </div>
-          <div key={j}>Bedroom {roomNo}</div>
+          <div key={j} className="bedroom-no">
+            Bedroom {roomNo}
+          </div>
           <div className="bed-detail" key={`${j}-bed-detail`}>
             {props.detail[j]}
           </div>

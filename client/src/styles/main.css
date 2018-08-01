@@ -16,21 +16,23 @@ body {
 }
 
 .sum__top {
-  padding: 1.5rem 0rem 1rem 0rem;
+  padding: 1.5rem 0rem 0rem 0rem;
   display: flex;
 }
 .sum__bottom {
-  padding: 1.5rem 0rem 1rem 0rem;
+  padding: 1rem 0rem 0rem 0rem;
   display: flex;
 }
 
 .sum__top--left {
-  width: 80%;
+  width: 70%;
 }
 .sum__top--right{
   margin-left: 3rem;
   /* float: right; */
   text-align: center;
+  width: 20%;
+  justify-content: flex-end;
 }
 
 .sum-single-icon {
@@ -46,6 +48,8 @@ body {
 
 .room-title{
   text-transform: capitalize;
+  -webkit-margin-before:0em;
+  -webkit-margin-after:0em;
 }
 
 /* .room__title {
@@ -58,9 +62,12 @@ body {
 
 }
 
-.summary__icons {
-  width: 5rem;
+.fa-lg {
+  font-size: 1em;
 }
+/* .summary__icons {
+  width: 5rem;
+} */
 
 .section {
   /* margin: 0 auto 2rem auto; */
@@ -105,7 +112,7 @@ div.toggle-more {
 }
 
 .fa {
-  margin-right: 0.5rem;
+  /* margin-right: 0.5rem; */
   width: 1.5rem;
 }
 .highlights {
@@ -113,6 +120,7 @@ div.toggle-more {
   border-radius: 4px;
   margin-left: 2rem;
   margin-right: 2rem;
+  padding-bottom: 1rem;
 }
 
 .highlights__feedback {
@@ -149,6 +157,8 @@ div.toggle-more {
 .avatar-image {
   border-radius: 50%;
   width: 5rem;
+  height: 4em;
+  width: 4em;
 }
 
 .highlights__title {
@@ -161,16 +171,23 @@ div.toggle-more {
   border: 1px solid var(--second-color);
   border-radius: 3px;
   width: 20%;
-  margin-left: 2rem;
-
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  min-width: 100px;
+  max-width: 20%;
 }
 
+
 .icons {
-  margin-right: 1rem;
+  /* margin-right: 1rem; */
 }
 
 .tile-image {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  width: 30%;
+  margin: auto;
+  font-size: 1.5em;
+
 }
 .section-wrapper {
 padding-bottom: 1.5rem;
@@ -179,13 +196,13 @@ padding-bottom: 1.5rem;
 .section-title {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  font-size: 16px !important;
+  font-size: 1em;
   font-weight: 800;
 }
 
 .images {
-  margin-bottom: 1.5rem;
   margin-top: 1rem;
+  display: flex;
 }
 
 .bed-detail {
@@ -357,21 +374,16 @@ div.amenities-single-icon.fa {
 }
 
 .amenities-left {
-  width: 30%
+  width: 40%
 }
 
 .amenities-right {
-  width: 30%
+  width: 40%
 }
 
 .tile--display {
   display: flex;
   padding-right: 2rem;
-}
-
-.tile {
-  width: 20%;
-  min-width: 100px;
 }
 
 tile__inside {
@@ -380,15 +392,14 @@ tile__inside {
 
 .fa-arrow-circle-o-left {
   padding-top: 3rem;
+  padding-right: 0.5rem;
   font-size: 2em;
-  padding-left: 2rem;
   cursor: pointer;
 }
 
 .fa-arrow-circle-o-right {
   padding-top: 3rem;
-  padding-left: 2rem;
-  padding-right: 3rem;
+  padding-left: 0.5rem;
   font-size: 2em;
   cursor: pointer;
 }
@@ -439,4 +450,30 @@ tile__inside {
 
 .sleeping {
   border-bottom: 1px solid var(--second-color);
+}
+
+.bedroom-no {
+  margin-top: 1rem;
+}
+
+.room-type {
+  font-size: 0.75em;
+  line-height: 1em;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.room__city{
+  font-size: 1em;
+  line-height: 1.5em;
+  font-weight: normal;
+
+}
+.host-name {
+  font-size: 14px !important;
+  line-height: 18px
+}
+.host-name__text {
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
 }

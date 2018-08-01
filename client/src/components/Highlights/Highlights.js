@@ -13,10 +13,10 @@ class Highlights extends Component {
     }
     return (
       <div className="highlights section">
-        <div className="section-wrapper">
-          <p className="highlights__title">HOME HIGHLIGHTS</p>
-          <HighlightItem highlights={highlightArr} />
-        </div>
+        {/* <div className="section-wrapper"> */}
+        <p className="highlights__title">HOME HIGHLIGHTS</p>
+        <HighlightItem highlights={highlightArr} />
+        {/* </div> */}
       </div>
     );
   }

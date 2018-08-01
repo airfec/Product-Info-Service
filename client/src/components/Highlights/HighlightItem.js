@@ -36,7 +36,9 @@ class HighlightItem extends Component {
             <b className="bigger">{this.props.highlights[i]} · </b>
             <span>{this.props.highlights[i + 1]}</span>
             {this.state.clicked ? (
-              <p className="highlights__feedback">Thanks for your feedback.</p>
+              <div className="highlights__feedback">
+                Thanks for your feedback.
+              </div>
             ) : (
               <div className="highlights__feedback">
                 <div
