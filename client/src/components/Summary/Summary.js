@@ -34,15 +34,17 @@ class Summary extends Component {
         <div className="section-wrapper">
           <div className="sum__top">
             <div className="sum__top--left">
-              <span>{this.props.room.type}</span>
+              <span className="room-type">{this.props.room.type}</span>
               {/* <h1>{this.capitilalize(this.props.room.title || '')}</h1> */}
               <h1 className="room-title">{this.props.room.title}</h1>
               <div className="room__city">{this.props.room.city}</div>
             </div>
             <div className="sum__top--right" align="right" alt="Avatar">
               <img src={this.props.room.avatar} className="avatar-image" />
-              <div>
-                <p>{this.props.room.host_username}</p>
+              <div className="host-name">
+                <p className="host-name__text">
+                  {this.props.room.host_username}
+                </p>
               </div>
             </div>
           </div>

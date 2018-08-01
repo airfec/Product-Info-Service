@@ -16,21 +16,23 @@ body {
 }
 
 .sum__top {
-  padding: 1.5rem 0rem 1rem 0rem;
+  padding: 1.5rem 0rem 0rem 0rem;
   display: flex;
 }
 .sum__bottom {
-  padding: 1.5rem 0rem 1rem 0rem;
+  padding: 1rem 0rem 0rem 0rem;
   display: flex;
 }
 
 .sum__top--left {
-  width: 80%;
+  width: 70%;
 }
 .sum__top--right{
   margin-left: 3rem;
   /* float: right; */
   text-align: center;
+  width: 20%;
+  justify-content: flex-end;
 }
 
 .sum-single-icon {
@@ -46,6 +48,8 @@ body {
 
 .room-title{
   text-transform: capitalize;
+  -webkit-margin-before:0em;
+  -webkit-margin-after:0em;
 }
 
 /* .room__title {
@@ -153,6 +157,8 @@ div.toggle-more {
 .avatar-image {
   border-radius: 50%;
   width: 5rem;
+  height: 4em;
+  width: 4em;
 }
 
 .highlights__title {
@@ -164,11 +170,11 @@ div.toggle-more {
 .tile {
   border: 1px solid var(--second-color);
   border-radius: 3px;
-  width: 15%;
+  width: 20%;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   min-width: 100px;
-  max-width: 15%;
+  max-width: 20%;
 }
 
 
@@ -190,7 +196,7 @@ padding-bottom: 1.5rem;
 .section-title {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  font-size: 16px !important;
+  font-size: 1em;
   font-weight: 800;
 }
 
@@ -448,4 +454,26 @@ tile__inside {
 
 .bedroom-no {
   margin-top: 1rem;
+}
+
+.room-type {
+  font-size: 0.75em;
+  line-height: 1em;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.room__city{
+  font-size: 1em;
+  line-height: 1.5em;
+  font-weight: normal;
+
+}
+.host-name {
+  font-size: 14px !important;
+  line-height: 18px
+}
+.host-name__text {
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
 }
