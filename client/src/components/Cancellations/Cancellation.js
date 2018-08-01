@@ -14,46 +14,58 @@ class Cancellation extends Component {
     this.setState({ isMoreClicked: !this.state.isMoreClicked });
   }
 
+  capitilalize(string) {
+    let first = string[0].toUpperCase();
+    let rest = string.substring(1);
+    return first + rest;
+  }
+
   render() {
     let cancellationArr = [];
 
-    if (typeof this.props.room.cancellation !== 'object') {
+    if (typeof this.props.room.cancellations !== 'object') {
       cancellationArr = ['here', 'test test'];
     } else {
       cancellationArr = this.props.room.cancellations;
     }
 
     let more = cancellationArr.slice(2);
+    let capitalizedMore = more.map(item => {
+      return this.capitilalize(item);
+    });
     let terms = cancellationArr.map((term, index) => (
-      <li key={index} className="list__item">
-        {`-  ${term}`}
-      </li>
+      <div key={index} className="list__item">
+        {this.capitilalize(term)}
+      </div>
     ));
 
     return (
       <div className="cancellation section">
-        <div className="section--title">Cancellations</div>
-        <div className="cancellation__first--line">{cancellationArr[0]}</div>
-        <div className="cancellation__second--line">{cancellationArr[1]}</div>
+        <div className="section-wrapper">
+          <div className="section-title">Cancellations</div>
+          <div className="cancellation__first--line">{terms[0]}</div>
+          <div className="cancellation__second--line">{terms[1]}</div>
 
-        {this.state.isMoreClicked ? (
-          <div>
-            <ol>{more}</ol>
+          {this.state.isMoreClicked ? (
             <div>
-              <a className="toggle-more">Get details</a>
+              <div className="cancellation__more">{capitalizedMore}</div>
+              <div className="cancellation-get-details">
+                <a className="toggle-more">Get details</a>
+              </div>
+              <div>
+                <a className="toggle-more" onClick={this.handleClickMore}>
+                  Hide policies{' '}
+                  <FontAwesome name="angle-up" size="lg" className="awesome" />
+                </a>
+              </div>
             </div>
-            <div>
-              <a className="toggle-more" onClick={this.handleClickMore}>
-                Hide policies
-              </a>
-            </div>
-          </div>
-        ) : (
-          <a className="toggle-more" onClick={this.handleClickMore}>
-            Read more about the policy{' '}
-            <FontAwesome name="angle-down" size="lg" className="awesome" />
-          </a>
-        )}
+          ) : (
+            <a className="toggle-more" onClick={this.handleClickMore}>
+              Read more about the policy{' '}
+              <FontAwesome name="angle-down" size="lg" className="awesome" />
+            </a>
+          )}
+        </div>
       </div>
     );
   }

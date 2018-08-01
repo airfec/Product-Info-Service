@@ -32,7 +32,6 @@ class PopUp extends Component {
 
   render() {
     let amenitiesArr = this.props.amenities;
-    console.log('popup render', this.props.amenities);
 
     if (typeof amenitiesArr !== 'object') {
       amenitiesArr = [
@@ -49,13 +48,23 @@ class PopUp extends Component {
     let amenitiesObj = this.formObject(amenitiesArr);
     let renderArr = [];
     for (let type in amenitiesObj) {
-      renderArr.push(<div className="amenity__type">{type}</div>);
+      renderArr.push(
+        <div className="amenity__type">
+          <p className="type-name">{type}</p>
+        </div>
+      );
       for (let i = 0; i < amenitiesObj[type].length; i++) {
         let amenity = amenitiesObj[type][i];
-        renderArr.push(<div className="amenity__name">{amenity.name}</div>);
+        renderArr.push(
+          <div className="amenity__name">
+            <p className="amenity__name__text">{amenity.name}</p>
+          </div>
+        );
         if (amenity.explanation.length > 0) {
           renderArr.push(
-            <div className="amenity__exp">{amenity.explanation}</div>
+            <div className="amenity__exp">
+              <p className="amenity__exp__text">{amenity.explanation}</p>
+            </div>
           );
         }
         if (i < amenitiesObj[type].length - 1) {
@@ -68,7 +77,7 @@ class PopUp extends Component {
       <div className="amenities-popup">
         <div className="amenitiess-popup__inner">
           <i className="fa fa-times" aria-hidden="true" size="lg" />
-          <div>{renderArr}</div>
+          <div className="popup-wrapper">{renderArr}</div>
         </div>
       </div>
     );

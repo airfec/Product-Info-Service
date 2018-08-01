@@ -24,8 +24,11 @@ const Icons = props => {
       let current = amenitiesArr[i];
       if (iconCounter <= 3 && current.icon.length > 0) {
         iconsLeft.push(
-          <div className={`${current.icon} icon--display__left`} key={i}>
-            {current.name}
+          <div className="amenities-single-icon" key={`${i}-left`}>
+            <div className={`${current.icon} icon--display__left`} key={i} />
+            <div className="amenity-name__icon" key={current.name}>
+              {current.name}
+            </div>
           </div>
         );
         iconCounter++;
@@ -36,12 +39,14 @@ const Icons = props => {
       ) {
         let keyValue = '' + i + ' ' + i;
         iconsRight.push(
-          <div
-            className={`${current.icon} icon--display__right`}
-            key={keyValue}
-          >
-            {'  '}
-            {current.name}
+          <div className="amenities-single-icon" key={`${i}-right`}>
+            <div
+              className={`${current.icon} icon--display__right`}
+              key={keyValue}
+            />
+            <div className="amenity-name__icon" key={current.name}>
+              {current.name}
+            </div>
           </div>
         );
         iconCounter++;
@@ -53,8 +58,8 @@ const Icons = props => {
 
   return (
     <div className="amenities__icons">
-      <div>{iconsLeft}</div>
-      <div>{iconsRight}</div>
+      <div className="amenities-left">{iconsLeft}</div>
+      <div className="amenities-right">{iconsRight}</div>
     </div>
   );
 };

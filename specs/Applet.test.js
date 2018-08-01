@@ -18,6 +18,7 @@ import Cancellation from '../client/src/components/Cancellations/Cancellation.js
 let wrapper = {};
 let instance;
 let getDataSpy;
+let app;
 beforeEach(() => {
   getDataSpy = jest.spyOn(Applet.prototype, 'getData');
   app = Enzyme.mount(<Applet />);

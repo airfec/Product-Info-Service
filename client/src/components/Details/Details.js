@@ -25,32 +25,39 @@ class Details extends Component {
 
   render() {
     return (
-      <div className="details section">
-        {this.state.more ? (
-          <div>
-            <p>{this.props.room.short_description}</p>
-            <p>{this.props.room.main_description}</p>
-            <a onClick={this.handleClick} className="toggle-more">
-              Hide <FontAwesome name="angle-up" size="lg" />
-            </a>
-          </div>
-        ) : (
-          <div>
-            <p>{this.props.room.short_description}</p>
-            <div className="toggle-more">
-              <a onClick={this.handleClick}>
-                Read more about the space{' '}
-                <FontAwesome name="angle-down" size="lg" />
+      <div className="details-section section">
+        <div className="section-wrapper">
+          {this.state.more ? (
+            <div>
+              <p>{this.props.room.short_description}</p>
+              <p>{this.props.room.main_description}</p>
+              <a onClick={this.handleClick} className="toggle-more">
+                Hide <FontAwesome name="angle-up" size="lg" />
               </a>
             </div>
+          ) : (
+            <div>
+              <p className="details-text">
+                {this.props.room.short_description}
+              </p>
+              <div>
+                <a
+                  onClick={this.handleClick}
+                  className="toggle-more details-toggle"
+                >
+                  Read more about the space{' '}
+                  <FontAwesome name="angle-down" size="lg" />
+                </a>
+              </div>
+            </div>
+          )}
+          <div className="toggle-more contact-host-link">
+            <a onClick={this.toggleContactPopup}>Contact host</a>
           </div>
-        )}
-        <div className="toggle-more">
-          <a onClick={this.toggleContactPopup}>Contact host</a>
+          {this.state.contactClicked ? (
+            <Contact toggleContactPopup={this.toggleContactPopup} />
+          ) : null}
         </div>
-        {this.state.contactClicked ? (
-          <Contact toggleContactPopup={this.toggleContactPopup} />
-        ) : null}
       </div>
     );
   }

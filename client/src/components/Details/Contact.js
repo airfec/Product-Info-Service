@@ -17,13 +17,13 @@ class Contact extends Component {
             onClick={this.props.toggleContactPopup}
           />
           <div className="contact__buttons">
-            <div>
+            <div className="contact-single-button">
               <button className="fa fa-facebook-f contacts__button">
                 <span>{'    '}</span>
                 {'  '}Continue with Facebook
               </button>
             </div>
-            <div>
+            <div className="contact-single-button">
               <button className="fa fa-google contacts__button">
                 {'  '}Continue with Google
               </button>
@@ -31,7 +31,7 @@ class Contact extends Component {
             {/* <div className="contact__line __left"> </div>
           <span className="contact__or">or</span>
           <div className="contact__line __right"> </div> */}
-            <div>
+            <div className="contact-single-button">
               <button className="fa fa-envelope-o contacts__button">
                 {'  '}Sign up with Email
               </button>

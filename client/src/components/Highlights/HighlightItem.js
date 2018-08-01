@@ -31,42 +31,44 @@ class HighlightItem extends Component {
     for (let i = 0; i < len - 1; i = i + 2) {
       let strKey = '' + i;
       let item = (
-        <span key={strKey}>
-          <div>
+        <div className="hichlightItem-wrapper" key={i}>
+          <span key={strKey}>
             <b className="bigger">{this.props.highlights[i]} · </b>
             <span>{this.props.highlights[i + 1]}</span>
-          </div>
-          {this.state.clicked ? (
-            <p className="highlights__feedback">Thanks for your feedback.</p>
-          ) : (
-            <div className="highlights__feedback">
-              <span
-                className="highlights__helpful"
-                onMouseEnter={this.handleMouseOn}
-                onMouseLeave={this.handleMouseOff}
-                onClick={this.handleClick}
-              >
-                <a>Helpful{'  '}</a>
-                <a
-                  className={
-                    this.state.mouseOn ? 'fa fa-thumbs-up' : 'fa fa-thumbs-o-up'
-                  }
-                />
-              </span>
-              <span> · </span>
-              <span
-                className="highlights__not-helpful"
-                onClick={this.handleClick}
-              >
-                <a>Not helpful</a>
-              </span>
-            </div>
-          )}
-        </span>
+            {this.state.clicked ? (
+              <p className="highlights__feedback">Thanks for your feedback.</p>
+            ) : (
+              <div className="highlights__feedback">
+                <div
+                  className="highlights__helpful"
+                  onMouseEnter={this.handleMouseOn}
+                  onMouseLeave={this.handleMouseOff}
+                  onClick={this.handleClick}
+                >
+                  <a>Helpful{'  '}</a>
+                  <a
+                    className={
+                      this.state.mouseOn
+                        ? 'fa fa-thumbs-up'
+                        : 'fa fa-thumbs-o-up'
+                    }
+                  />
+                </div>
+                <div> · </div>
+                <div
+                  className="highlights__not-helpful"
+                  onClick={this.handleClick}
+                >
+                  <a>Not helpful</a>
+                </div>
+              </div>
+            )}
+          </span>
+        </div>
       );
       items.push(item);
     }
-    return <ul>{items}</ul>;
+    return <div className="highlightItem-text">{items}</div>;
   }
 }
 

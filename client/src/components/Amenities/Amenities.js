@@ -11,7 +11,6 @@ if (process.env.NODE_ENV !== 'test') {
 class Amenities extends Component {
   constructor(props) {
     super(props);
-    console.log('amenities here', this.props.amenities);
     this.state = {
       showPopUp: false
     };
@@ -48,7 +47,6 @@ class Amenities extends Component {
 
   renderModal() {
     let amenitiesArr = this.props.amenities;
-    console.log('popup render', this.props.amenities);
 
     if (typeof amenitiesArr !== 'object') {
       amenitiesArr = [
@@ -64,34 +62,29 @@ class Amenities extends Component {
 
     let amenitiesObj = this.formObject(amenitiesArr);
     let renderArr = [];
-    for (let type in amenitiesObj) {
-      renderArr.push(
+    const types = Object.keys(amenitiesObj);
+    renderArr = types.map((type, index) => {
+      return (
         <div className="amenity__type" key={type}>
-          {type}
+          <p className="type-title">{type}</p>
+          {amenitiesObj[type].map((amenity, i) => {
+            let clName = 'amenity__name';
+            return (
+              <div className={clName} key={i}>
+                {amenitiesObj[type][i].name}
+                {amenitiesObj[type][i].explanation.length > 0 ? (
+                  <div className="amenity__exp" key={`exp${i}`}>
+                    {' '}
+                    {amenitiesObj[type][i].explanation}
+                  </div>
+                ) : null}
+              </div>
+            );
+          })}
         </div>
       );
-      for (let i = 0; i < amenitiesObj[type].length; i++) {
-        let amenity = amenitiesObj[type][i];
-        let keyVal = type + i + '-';
-        renderArr.push(
-          <div className="amenity__name" key={keyVal}>
-            {amenity.name}
-          </div>
-        );
-        if (amenity.explanation.length > 0) {
-          let keyValue = type + i + '-' + i;
-          renderArr.push(
-            <div className="amenity__exp" key={keyValue}>
-              {amenity.explanation}
-            </div>
-          );
-        }
-        if (i < amenitiesObj[type].length - 1) {
-          let keyLine = i + 'line';
-          renderArr.push(<div className="line"> </div>);
-        }
-      }
-    }
+    });
+
     return renderArr;
   }
 
@@ -110,10 +103,10 @@ class Amenities extends Component {
       ];
     }
     return (
-      <div>
-        <div className="amenities section">
-          <div>Amenities</div>
-          <div className="icons--display">
+      <div className="amenities section">
+        <div className="section-wrapper">
+          <div className="section-title">Amenities</div>
+          <div className="icons-display">
             <Icons amenities={amenitiesArr} />
           </div>
           <a className="toggle-more" onClick={this.handleClickShowAll}>
