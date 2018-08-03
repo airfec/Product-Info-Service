@@ -1,0 +1,12 @@
+node_modules
+npm-debug.log
+
+aws-keys.json
+
+node_modules
+npm-debug.log
+
+__tests__
+specs
+coverage
+

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
-
-const dbURI = process.env.MONGODB_URI || 'mongodb://localhost/info';
+const dBIP = 'database:27017';
+// const dbURI = process.env.MONGODB_URI || 'mongodb://localhost/info';
+const dbURI = process.env.MONGODB_URI || `mongodb://${dBIP}/info`;
 
 mongoose.connect(dbURI);
 
