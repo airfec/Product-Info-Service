@@ -10,7 +10,7 @@
   "scripts": {
     "db:seed": "node generate.js",
     "start": "nodemon server/index.js",
-    "start:pro": "node generate.js && webpack -d && node server/",
+    "start:pro": "node generate.js && node server/",
     "react-dev": "webpack -d --watch",
     "test": "jest",
     "lint": "eslint client controllers server models public specs routes"
@@ -63,7 +63,6 @@
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-config-airbnb-standard": "^2.1.6",
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.10.0",
