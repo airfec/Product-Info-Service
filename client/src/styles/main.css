@@ -111,7 +111,8 @@ div.toggle-more {
 
 }
 
-.fa {
+/* change the classname here */
+.fa { 
   /* margin-right: 0.5rem; */
   width: 1.5rem;
 }
@@ -307,10 +308,12 @@ a:link {
 .ReactModal__Content--after-open {
   width: 40rem;
   box-align: center;
+  margin: auto;
 }
 .popup-wrapper {
   font-family: "Helvetica", sans-serif;
   margin: 2rem 2rem 2rem 2rem;
+  background: #ff2559;
 }
 
 .rules-toggle__border--on {
@@ -343,6 +346,10 @@ a:link {
   padding-top: 0.5rem;
   font-size: 75%;
 }
+
+/* .modal-popup {
+  background: #ff2559;
+} */
 
 .ReactModal__Body--open {
   overflow: hidden;

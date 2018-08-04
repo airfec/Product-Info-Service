@@ -95,8 +95,8 @@ class Amenities extends Component {
       amenitiesArr = [
         {
           _id: '5b591d928f0a5f0970152179',
-          amenityType: 'Bed and bath',
-          name: 'Hair dryer',
+          amenityType: 'Bed and bath booo',
+          name: 'Hair dryer boooo',
           icon: '',
           explanation: ''
         }
@@ -115,7 +115,9 @@ class Amenities extends Component {
           </a>
           <ReactModal
             isOpen={this.state.showPopUp}
-            onClose={() => this.handleClosePopUp()}
+            onRequestClose={() => this.handleClosePopUp()}
+            shouldCloseOnOverlayClick={true}
+            shouldCloseOnEsc={true}
           >
             <i
               className="fa fa-times"
@@ -123,7 +125,7 @@ class Amenities extends Component {
               size="lg"
               onClick={() => this.handleClosePopUp()}
             />
-            <div>{this.renderModal()}</div>
+            <div className="modal-popup">{this.renderModal()}</div>
           </ReactModal>
         </div>
       </div>

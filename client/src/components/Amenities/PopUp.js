@@ -77,6 +77,7 @@ class PopUp extends Component {
       <div className="amenities-popup">
         <div className="amenitiess-popup__inner">
           <i className="fa fa-times" aria-hidden="true" size="lg" />
+          <div> boooo!!! </div>
           <div className="popup-wrapper">{renderArr}</div>
         </div>
       </div>
