@@ -111,6 +111,7 @@ class Details extends Component {
                   right: 0,
                   bottom: 0,
                   backgroundColor: 'rgba(96,96,96, 0.75)'
+                  // border: none
                 },
                 content: {
                   position: 'absolute',
@@ -119,15 +120,16 @@ class Details extends Component {
                   // right: '40px',
                   // bottom: '40px',
                   width: '40%',
-                  height: '60%',
+                  height: '310px',
                   'min-width': '500px',
-                  border: '1px solid #ccc',
+                  // border: '1px solid #ccc',
                   background: '#fff',
                   overflow: 'auto',
                   WebkitOverflowScrolling: 'touch',
                   borderRadius: '4px',
                   outline: 'none',
-                  padding: '20px'
+                  padding: '20px',
+                  fontFamily: 'Helvetica'
                 }
               }}
             >

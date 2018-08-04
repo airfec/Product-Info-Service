@@ -112,10 +112,11 @@ div.toggle-more {
 }
 
 /* change the classname here */
-.fa { 
+/* .fa { 
   /* margin-right: 0.5rem; */
-  width: 1.5rem;
-}
+  /* width: 1.5rem; 
+} */
+
 .highlights {
   border: 1px solid var(--second-color);
   border-radius: 4px;
@@ -223,13 +224,17 @@ a:link {
 
 .contacts__button {
   margin-top: 0.5rem;
-  width: 24rem;
+  width: 100%;
   height: 3rem;
+  border: none;
+  border-radius: 5px;
 }
 
 .fa-facebook-f {
   background: rgb(69, 104, 178);
   color: white;
+  /* border: none;
+  border-radius: 5px; */
 }
 
 /* .details-section .section {
@@ -239,6 +244,8 @@ a:link {
 .fa-envelope-o {
   background: #FF5A5F;
   color: white;
+  /* border: none;
+  border-radius: 5px; */
 }
 
 .contact__line {
@@ -246,6 +253,11 @@ a:link {
   margin-top: 1rem;
   margin-bottom: 0.5rem;
   width: 10rem;
+}
+
+.fa-google {
+  background: var(--second-color);
+  color: var(--main-bg-color);
 }
 
 .__left {
@@ -297,7 +309,7 @@ a:link {
 }
 
 .contact__buttons {
-  padding: 3.5rem 3rem 3rem 3.5rem;
+  padding: 0 3rem;
 
 }
 
@@ -322,8 +334,7 @@ a:link {
 }
 
 .type-title {
-  padding-bottom: 0.5rem;
-  font-size: 135%;
+  font-size: 120%;
   font-weight: 600;
 }
 
@@ -487,4 +498,8 @@ tile__inside {
 .host-name__text {
   -webkit-margin-before: 0em;
   -webkit-margin-after: 0em;
+}
+
+.sum-icon-name{
+  padding-left: 0.5rem;
 }

@@ -119,6 +119,11 @@ class Amenities extends Component {
               onRequestClose={() => this.handleClosePopUp()}
               shouldCloseOnOverlayClick={true}
               shouldCloseOnEsc={true}
+              style={{
+                content: {
+                  padding: '2rem'
+                }
+              }}
             >
               <i
                 className="fa fa-times"
