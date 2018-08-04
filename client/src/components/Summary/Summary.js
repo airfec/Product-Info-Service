@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
-import { totalmem } from 'os';
 
 class Summary extends Component {
   constructor(props) {

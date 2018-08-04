@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import FontAwesome from 'react-fontawesome';
-import PopUp from './../Amenities/PopUp.js';
 import ReactModal from 'react-modal';
 import Icons from './Icons.js';
 

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Tile from './Tile.js';
-import { timingSafeEqual } from 'crypto';
 
 class Sleeping extends Component {
   constructor(props) {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
-import Contact from './Contact.js';
+// import Contact from './Contact.js';
 import Modal from 'react-modal';
 
 class Details extends Component {

@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import Summary from './../Summary/Summary.js';
 import Highlights from './../Highlights/Highlights.js';
-// import HighlightItem from '../Highlights/HighlightItem.js';
 import Details from './../Details/Details.js';
 import Sleeping from './../Sleeping Arrangments/Sleeping.js';
 import Rules from './../Rules/Rules.js';
 import Cancellation from './../Cancellations/Cancellation.js';
-import Contact from './../Details/Contact.js';
 import Amenities from './../Amenities/Amenities.js';
-import $ from 'jquery';
 
 
 class Applet extends Component {
