@@ -113,20 +113,22 @@ class Amenities extends Component {
             {' '}
             Show all {amenitiesArr.length} amenities{' '}
           </a>
-          <ReactModal
-            isOpen={this.state.showPopUp}
-            onRequestClose={() => this.handleClosePopUp()}
-            shouldCloseOnOverlayClick={true}
-            shouldCloseOnEsc={true}
-          >
-            <i
-              className="fa fa-times"
-              aria-hidden="true"
-              size="lg"
-              onClick={() => this.handleClosePopUp()}
-            />
-            <div className="modal-popup">{this.renderModal()}</div>
-          </ReactModal>
+          {this.state.showPopUp ? (
+            <ReactModal
+              isOpen={this.state.showPopUp}
+              onRequestClose={() => this.handleClosePopUp()}
+              shouldCloseOnOverlayClick={true}
+              shouldCloseOnEsc={true}
+            >
+              <i
+                className="fa fa-times"
+                aria-hidden="true"
+                size="lg"
+                onClick={() => this.handleClosePopUp()}
+              />
+              <div className="modal-popup">{this.renderModal()}</div>
+            </ReactModal>
+          ) : null}
         </div>
       </div>
     );
