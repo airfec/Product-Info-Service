@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
-// import Contact from './Contact.js';
 import Modal from 'react-modal';
 
 class Details extends Component {
@@ -38,13 +37,14 @@ class Details extends Component {
         <div className="contact__buttons">
           <div className="contact-single-button">
             <button className="fa fa-facebook-f contacts__button">
-              <span>{'    '}</span>
-              {'  '}Continue with Facebook
+              <span className="contact-button__text">
+                Continue with Facebook
+              </span>
             </button>
           </div>
           <div className="contact-single-button">
             <button className="fa fa-google contacts__button">
-              {'  '}Continue with Google
+              <span className="contact-button__text">Continue with Google</span>
             </button>
           </div>
           {/* <div className="contact__line __left"> </div>
@@ -52,7 +52,7 @@ class Details extends Component {
           <div className="contact__line __right"> </div> */}
           <div className="contact-single-button">
             <button className="fa fa-envelope-o contacts__button">
-              {'  '}Sign up with Email
+              <span className="contact-button__text">Sign up with Email</span>
             </button>
           </div>
           <div className="contact__line--whole"> </div>
