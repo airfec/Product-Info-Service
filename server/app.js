@@ -4,7 +4,7 @@ const path = require('path');
 
 const app = express();
 
-app.set('port', process.env.PORT || 3003);
+app.set('port', process.env.PORT || 3003); //prod vs test environment switch
 
 app.get('/', function(req, res) {
   res.redirect('/rooms/1');

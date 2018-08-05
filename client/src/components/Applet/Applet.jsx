@@ -14,7 +14,8 @@ class Applet extends Component {
     this.state = {
       room: {}
     };
-    // console.log('applet', this.state.room);
+
+    console.log('applet', this.state.room);
   }
 
   // componentDidMount() {
@@ -49,6 +50,7 @@ class Applet extends Component {
 
   render() {
 
+    console.log(this.state.room)
     return (
       <div>
         <Summary className="summary section" room={this.state.room} />
@@ -59,7 +61,7 @@ class Applet extends Component {
         <Details room={this.state.room} />
         {/* <div className="amenities section">amenities</div> */}
         <Amenities amenities={this.state.room.amenities} />
-        <Sleeping room={this.state.room} />
+        <Sleeping beds={this.state.room.sleeping_arrangements} />
         <Rules room={this.state.room} />
         <Cancellation room={this.state.room} />
       </div>

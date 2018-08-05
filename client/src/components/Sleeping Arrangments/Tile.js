@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
 
 const Tile = props => {
+  console.log('tile', props);
   let tiles = [];
   let roomNo = props.start + 1;
   for (let j = 0; j < props.detail.length; j++) {
@@ -37,19 +38,23 @@ const Tile = props => {
 
   return (
     <div className="tile--display">
-      {props.leftArrow ? (
-        <div
-          className="fa fa-arrow-circle-o-left"
-          onClick={props.onLeftArrowClick}
-        />
-      ) : null}
+      {/* <div
+        className={
+          this.props.leftArrow
+            ? 'fa fa-arrow-circle-o-left enabled-arrow'
+            : 'fa fa-arrow-circle-o-left disabled-arrow'
+        }
+        onClick={props.onLeftArrowClick}
+      /> */}
       {tiles}
-      {props.rightArrow ? (
-        <div
-          className="fa fa-arrow-circle-o-right"
-          onClick={props.onRightArrowClick}
-        />
-      ) : null}
+      {/* <div
+        className={
+          this.props.leftArrow
+            ? 'fa fa-arrow-circle-o-righ enabled-arrow'
+            : 'fa fa-arrow-circle-o-right disabled-arrow'
+        }
+        onClick={props.onRightArrowClick}
+      /> */}
     </div>
   );
 };

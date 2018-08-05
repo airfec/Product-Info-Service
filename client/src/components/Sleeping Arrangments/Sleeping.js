@@ -7,6 +7,7 @@ class Sleeping extends Component {
     this.state = {
       start: 0,
       end: 2,
+      beds: [],
       isRightArrow: true,
       isLeftArrow: true
     };
@@ -14,6 +15,14 @@ class Sleeping extends Component {
     this.handleClickRightArrow = this.handleClickRightArrow.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    const { beds } = nextProps;
+    this.setState({
+      beds: beds,
+      isRightArrow: beds.length > 3,
+      isLeftArrow: false
+    });
+  }
   componentDidMount() {
     // this.populateArrows();
     // console.log(this.state.start);
@@ -66,7 +75,7 @@ class Sleeping extends Component {
   }
 
   render() {
-    let allTiles = this.props.room.sleeping_arrangements || [];
+    let allTiles = this.state.beds || [];
     let displayTiles = allTiles.slice(this.state.start, this.state.end + 1);
 
     return (
