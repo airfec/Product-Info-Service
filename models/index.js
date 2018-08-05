@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const dBIP = 'database:27017';
 // const dbURI = process.env.MONGODB_URI || 'mongodb://localhost/info';
-const dbURI = process.env.MONGODB_URI || `mongodb://${dBIP}/info`;
+// const dbURI = process.env.MONGODB_URI || `mongodb://${dBIP}/info`;
+const dbURI = `mongodb://${process.env.MONGODB_URI || 'localhost'}:27017/info`;
 
 mongoose.connect(dbURI);
 
@@ -25,6 +26,7 @@ mongoose.connection.on('disconnected', function() {
 
 // If the Node process ends, close the Mongoose connection
 process.on('SIGINT', function() {
+  //node.js key when you kill the service
   mongoose.connection.close(function() {
     console.log(
       'Mongoose default connection disconnected through app termination'

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Tile from './Tile.js';
-import { timingSafeEqual } from 'crypto';
 
 class Sleeping extends Component {
   constructor(props) {
@@ -8,6 +7,7 @@ class Sleeping extends Component {
     this.state = {
       start: 0,
       end: 2,
+      beds: [],
       isRightArrow: true,
       isLeftArrow: true
     };
@@ -15,59 +15,43 @@ class Sleeping extends Component {
     this.handleClickRightArrow = this.handleClickRightArrow.bind(this);
   }
 
-  componentDidMount() {
-    // this.populateArrows();
-    // console.log(this.state.start);
-    // console.log(this.state.end);
-  }
-
-  populateTiles() {
-    // let arrangementArr = this.props.room.sleeping_arrangements || [];
-    // console.log('aarr', arrangementArr);
-    // arrangementArr.length > 3
-    //   ? this.setState({ start: 0, end: 2 })
-    //   : this.setState({ start: 0, end: arrangementArr.length - 1 });
-    // // console.log(this.state.start);
-    // // console.log(this.state.end);
-  }
-
-  populateArrows() {
-    let arrangementArr = this.props.room.sleeping_arrangements || [];
-    console.log(arrangementArr.length);
-    arrangementArr.length > 3
-      ? this.setState({ isLeftArrow: false, isRightArrow: true })
-      : this.setState({ isLeftArrow: false, isRightArrow: false });
-    // this.state.end < arrangementArr.length
-    //   ? this.setState({ showRightArrow: true })
-    //   : this.setState({ showRightArrow: false });
+  componentWillReceiveProps(nextProps) {
+    const { beds } = nextProps;
+    this.setState({
+      beds: beds,
+      isRightArrow: beds.length > 3,
+      isLeftArrow: false
+    });
   }
 
   handleClickRightArrow() {
-    let arrangementArr = this.props.room.sleeping_arrangements || [];
-    if (this.state.end + 1 <= arrangementArr.length - 1) {
+    if (this.state.end + 1 <= this.state.beds.length - 1) {
       let newEnd = this.state.end + 1;
       let newStart = this.state.start + 1;
 
-      this.setState({ end: newEnd, start: newStart });
-      if (this.state.end === arrangementArr.length - 1) {
+      this.setState({ end: newEnd, start: newStart, isLeftArrow: true });
+      if (this.state.end === this.state.beds.length - 2) {
         this.setState({ isRightArrow: false });
       }
     }
   }
 
   handleClickLeftArrow() {
+    let newStart;
+    let newEnd;
     if (this.state.start - 1 >= 0) {
-      let newStart = this.state.start - 1;
-      let newEnd = this.state.end - 1;
-      this.setState({ start: newStart, end: newEnd });
-      if (this.state.start === 0) {
+      newStart = this.state.start - 1;
+      newEnd = this.state.end - 1;
+      if (newStart === 0) {
         this.setState({ isLeftArrow: false });
       }
+      this.setState({ start: newStart, end: newEnd, isRightArrow: true });
     }
   }
 
   render() {
-    let allTiles = this.props.room.sleeping_arrangements || [];
+    let allTiles = this.state.beds || [];
+    console.log(allTiles);
     let displayTiles = allTiles.slice(this.state.start, this.state.end + 1);
 
     return (

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
-import Contact from './Contact.js';
+import Modal from 'react-modal';
 
 class Details extends Component {
   constructor(props) {
@@ -21,6 +21,48 @@ class Details extends Component {
     this.setState({
       contactClicked: !this.state.contactClicked
     });
+  }
+
+  renderContact() {
+    return (
+      // <div className="contact">
+      //   <div className="contact__inner">
+      <div>
+        <i
+          className="fa fa-times"
+          aria-hidden="true"
+          size="lg"
+          onClick={this.toggleContactPopup}
+        />
+        <div className="contact__buttons">
+          <div className="contact-single-button">
+            <button className="fa fa-facebook-f contacts__button">
+              <span className="contact-button__text">
+                Continue with Facebook
+              </span>
+            </button>
+          </div>
+          <div className="contact-single-button">
+            <button className="fa fa-google contacts__button">
+              <span className="contact-button__text">Continue with Google</span>
+            </button>
+          </div>
+          {/* <div className="contact__line __left"> </div>
+          <span className="contact__or">or</span>
+          <div className="contact__line __right"> </div> */}
+          <div className="contact-single-button">
+            <button className="fa fa-envelope-o contacts__button">
+              <span className="contact-button__text">Sign up with Email</span>
+            </button>
+          </div>
+          <div className="contact__line--whole"> </div>
+          <div className="contact__already">
+            <span>Already have an Airbnb account?{'    '}</span>
+            <a className="toggle-more">Log in</a>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   render() {
@@ -54,8 +96,45 @@ class Details extends Component {
           <div className="toggle-more contact-host-link">
             <a onClick={this.toggleContactPopup}>Contact host</a>
           </div>
+
           {this.state.contactClicked ? (
-            <Contact toggleContactPopup={this.toggleContactPopup} />
+            <Modal
+              isOpen={this.state.contactClicked}
+              onRequestClose={() => this.toggleContactPopup()}
+              shouldCloseOnOverlayClick={true}
+              shouldCloseOnEsc={true}
+              style={{
+                overlay: {
+                  position: 'fixed',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  backgroundColor: 'rgba(96,96,96, 0.75)'
+                  // border: none
+                },
+                content: {
+                  position: 'absolute',
+                  // top: '40px',
+                  left: '70px',
+                  // right: '40px',
+                  // bottom: '40px',
+                  width: '40%',
+                  height: '310px',
+                  'min-width': '500px',
+                  // border: '1px solid #ccc',
+                  background: '#fff',
+                  overflow: 'auto',
+                  WebkitOverflowScrolling: 'touch',
+                  borderRadius: '4px',
+                  outline: 'none',
+                  padding: '20px',
+                  fontFamily: 'Helvetica'
+                }
+              }}
+            >
+              <div>{this.renderContact()}</div>
+            </Modal>
           ) : null}
         </div>
       </div>

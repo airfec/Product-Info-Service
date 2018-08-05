@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import Summary from './../Summary/Summary.js';
 import Highlights from './../Highlights/Highlights.js';
-// import HighlightItem from '../Highlights/HighlightItem.js';
 import Details from './../Details/Details.js';
 import Sleeping from './../Sleeping Arrangments/Sleeping.js';
 import Rules from './../Rules/Rules.js';
 import Cancellation from './../Cancellations/Cancellation.js';
-import Contact from './../Details/Contact.js';
 import Amenities from './../Amenities/Amenities.js';
-import $ from 'jquery';
 
 
 class Applet extends Component {
@@ -17,7 +14,8 @@ class Applet extends Component {
     this.state = {
       room: {}
     };
-    // console.log('applet', this.state.room);
+
+    console.log('applet', this.state.room);
   }
 
   // componentDidMount() {
@@ -52,6 +50,7 @@ class Applet extends Component {
 
   render() {
 
+    console.log(this.state.room)
     return (
       <div>
         <Summary className="summary section" room={this.state.room} />
@@ -62,7 +61,7 @@ class Applet extends Component {
         <Details room={this.state.room} />
         {/* <div className="amenities section">amenities</div> */}
         <Amenities amenities={this.state.room.amenities} />
-        <Sleeping room={this.state.room} />
+        <Sleeping beds={this.state.room.sleeping_arrangements} />
         <Rules room={this.state.room} />
         <Cancellation room={this.state.room} />
       </div>

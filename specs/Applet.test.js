@@ -66,7 +66,7 @@ describe('Applet', function() {
   });
 
   it('should contain Sleeping', () => {
-    expect(app.contains(<Sleeping room={app.instance().state.room} />)).toBe(
+    expect(app.contains(<Sleeping beds={app.instance().state.beds} />)).toBe(
       true
     );
   });

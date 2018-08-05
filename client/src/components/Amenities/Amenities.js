@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import FontAwesome from 'react-fontawesome';
-import PopUp from './../Amenities/PopUp.js';
 import ReactModal from 'react-modal';
 import Icons from './Icons.js';
 
@@ -95,8 +93,8 @@ class Amenities extends Component {
       amenitiesArr = [
         {
           _id: '5b591d928f0a5f0970152179',
-          amenityType: 'Bed and bath',
-          name: 'Hair dryer',
+          amenityType: 'Bed and bath booo',
+          name: 'Hair dryer boooo',
           icon: '',
           explanation: ''
         }
@@ -113,18 +111,27 @@ class Amenities extends Component {
             {' '}
             Show all {amenitiesArr.length} amenities{' '}
           </a>
-          <ReactModal
-            isOpen={this.state.showPopUp}
-            onClose={() => this.handleClosePopUp()}
-          >
-            <i
-              className="fa fa-times"
-              aria-hidden="true"
-              size="lg"
-              onClick={() => this.handleClosePopUp()}
-            />
-            <div>{this.renderModal()}</div>
-          </ReactModal>
+          {this.state.showPopUp ? (
+            <ReactModal
+              isOpen={this.state.showPopUp}
+              onRequestClose={() => this.handleClosePopUp()}
+              shouldCloseOnOverlayClick={true}
+              shouldCloseOnEsc={true}
+              style={{
+                content: {
+                  padding: '2rem'
+                }
+              }}
+            >
+              <i
+                className="fa fa-times"
+                aria-hidden="true"
+                size="lg"
+                onClick={() => this.handleClosePopUp()}
+              />
+              <div className="modal-popup">{this.renderModal()}</div>
+            </ReactModal>
+          ) : null}
         </div>
       </div>
     );
