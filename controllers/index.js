@@ -1,8 +1,5 @@
-/* 
-func (req, res) {
+//HANDLE DIRECT CHANGE TO DATABASE
 
-}
-*/
 const db = require("../models");
 
 const getRoom = (roomId, callback) => {

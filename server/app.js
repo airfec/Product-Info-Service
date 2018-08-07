@@ -1,3 +1,6 @@
+// HANDLE SERVER CALLS, RELAY TO DB CONTROLLER?
+// question: what is res.sendFile() for?
+
 const express = require('express');
 const routes = require('./../routes');
 const path = require('path');
@@ -18,6 +21,38 @@ app.get('/rooms/:id', function(req, res) {
   res.sendFile(reactPath);
 });
 
+//using routes
 app.use('/api', routes);
 
 module.exports = app;
+
+
+/*
+Create / POST - create a new item
+Read / GET - read an item
+Update / PUT - update an item
+Delete / DELETE - delete an item
+*/
+
+
+// // CREATE
+// app.post('/rooms/:id', function(req, res) {
+//   console.log('hello POST in app.js');
+
+//   // const reactPath = path.join(__dirname, '../public/index.html');
+//   // res.sendFile(reactPath);
+// });
+
+// // UPDATE
+// app.put('/rooms/:id', function(req, res) {
+//   console.log('hello PUT');
+//   // const reactPath = path.join(__dirname, '../public/index.html');
+//   // res.sendFile(reactPath);
+// });
+
+// // DELETE
+// app.delete('/rooms/:id', function(req, res) {
+//   res.send('DELETE request to homepage');
+//   // const reactPath = path.join(__dirname, '../public/index.html');
+//   // res.sendFile(reactPath);
+// });
