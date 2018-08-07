@@ -4,8 +4,12 @@
 const express = require('express');
 const routes = require('./../routes');
 const path = require('path');
+const bodyParser = require('body-parser');
 
 const app = express();
+
+const jsonParser = bodyParser.json();
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.set('port', process.env.PORT || 3003); //prod vs test environment switch
 
@@ -22,6 +26,7 @@ app.get('/rooms/:id', function(req, res) {
 });
 
 //using routes
+app.use(jsonParser);
 app.use('/api', routes);
 
 module.exports = app;
