@@ -11,8 +11,6 @@ router.use(bodyParser.json());
 
 //Create
 router.post('/rooms/:id/roomInfo', (req, res) => {
-  // console.log('inside post request', req.body);
-  //edit next line
   ctrl.postRoomInfo(req.body, (err, data) => {
     if (err) {
       res.status(422).send(err);
@@ -36,9 +34,7 @@ router.get('/rooms/:id', (req, res) => {
 
 //Update
 router.put('/rooms/:id/roomInfo', (req, res) => {
-  console.log('inside put request', req.params.id);
-  //edit next line
-  ctrl.updateRoomInfo(req.params.id, (err, data) => {
+  ctrl.updateRoomInfo(req.params.id, req.body, (err) => {
     if (err) {
       res.status(404).send(err);
     } else {
@@ -49,8 +45,6 @@ router.put('/rooms/:id/roomInfo', (req, res) => {
 
 //Delete
 router.delete('/rooms/:id/roomInfo', (req, res) => {
-  console.log('inside delete request', req.params.id);
-  //edit next line
   ctrl.deleteRoomInfo(req.params.id, (err, data) => {
     if (err) {
       res.status(404).send(err);

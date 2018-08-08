@@ -1,6 +1,5 @@
 const db = require("../models");
 const Room = require("../models/Room.js");
-// const db = require("../models");
 
 // Create:
 const postRoomInfo = (data, callback) => {
@@ -25,30 +24,19 @@ const getRoom = (roomId, callback) => {
   });
 };
 
-module.exports = { getRoom };
-
 // Update:
-const updateRoomInfo = (roomId, callback) => {
-  // let query = db.Room.findOne({ room_id: roomId });
-  // query.exec((err, room) => {
-  //   if (err) {
-  //     console.log("error in getting room: ", err);
-  //     callback(err);
-  //   }
-  //   callback(null, room);
-  // });
+const updateRoomInfo = (roomId, updatedBody, callback) => {
+  Room.update({ room_id: roomId }, { $set: updatedBody}, callback);
 };
 
 //Delete:
 const deleteRoomInfo = (roomId, callback) => {
-  // let query = db.Room.findOne({ room_id: roomId });
-  // query.exec((err, room) => {
-  //   if (err) {
-  //     console.log("error in getting room: ", err);
-  //     callback(err);
-  //   }
-  //   callback(null, room);
-  // });
+  Room.deleteOne({ room_id: roomId }, function (err) {
+    if (err) {
+      callback(err);
+    }
+    callback(null)
+  });
 };
 
 module.exports = {
