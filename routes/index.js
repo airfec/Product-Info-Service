@@ -48,7 +48,7 @@ router.delete('/rooms/:id/room', (req, res) => {
       res.status(500).send(err);
     }
     const response = {
-      message: "Todo successfully deleted!",
+      message: `Room ${id} was deleted.`,
       id
     };
     res.status(200).send(response);
