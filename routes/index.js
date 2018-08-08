@@ -21,8 +21,7 @@ router.post('/rooms/:id/roomInfo', (req, res) => {
 });
 
 //Read
-router.get('/rooms/:id', (req, res) => {
-  console.log('here inside routes/index', req.params.id);
+router.get('/rooms/:id/roomInfo', (req, res) => {
   ctrl.getRoom(req.params.id, (err, data) => {
     if (err) {
       res.status(404).send(err);
@@ -31,6 +30,7 @@ router.get('/rooms/:id', (req, res) => {
     }
   });
 });
+
 
 //Update
 router.put('/rooms/:id/roomInfo', (req, res) => {
