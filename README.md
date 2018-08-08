@@ -44,4 +44,4 @@ npm install
 
 - Update: To update a current entry, send put request to endpoint: 'api/rooms/:id/roomInfo', where ':id' is the room number for the listing and the data being being updated is in JSON format.
 
--Delete: To delete a room info entry, send delete request to endpoint: 'api/rooms/:id/roomInfo', where ':id' is the room number for the listing.
+- Delete: To delete a room info entry, send delete request to endpoint: 'api/rooms/:id/roomInfo', where ':id' is the room number for the listing.
