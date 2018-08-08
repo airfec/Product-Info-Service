@@ -2,13 +2,6 @@
 
 > Project description
 
-## Related Projects
-
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-
 ## Table of Contents
 
 1. [Usage](#Usage)
@@ -33,7 +26,14 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 From within the root directory:
 
 ```sh
-npm install -g webpack
 npm install
 ```
+
+### Rest API
+
+GET | route: rooms/:id | Get's the room info from the db
+POST | route: api/rooms/:id/room | Creates a new room in the db
+PUT | route: api/rooms/:id/room | Updates a new room in the db
+DELETE | route: api/rooms/:id/room | Removes a new room in the db
+
 
