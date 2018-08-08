@@ -17,7 +17,6 @@ router.get('/rooms/:id', (req, res) => {
   });
 });
 
-//POST
 router.post('/rooms/:id/room', (req, res) => {
   console.log('POST got triggered');
   const roomInfo = req.params;
@@ -29,7 +28,6 @@ router.post('/rooms/:id/room', (req, res) => {
   })
 })
 
-//PUT - UPDATE
 router.put('/rooms/:id/room', (req, res) => {
   console.log('PUT got triggered');
   const changes = req.body;
@@ -42,7 +40,6 @@ router.put('/rooms/:id/room', (req, res) => {
   });
 });
 
-//DELETE
 router.delete('/rooms/:id/room', (req, res) => {
   console.log('DELETE got triggered');
   const id = req.params.id;
@@ -51,12 +48,11 @@ router.delete('/rooms/:id/room', (req, res) => {
       res.status(500).send(err);
     }
     const response = {
-      message: "Todo successfully deleted",
+      message: "Todo successfully deleted!",
       id
     };
     res.status(200).send(response);
   });
 });
-
 
 module.exports = router;
