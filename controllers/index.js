@@ -16,4 +16,13 @@ const getRoom = (roomId, callback) => {
   });
 };
 
-module.exports = { getRoom };
+const createRoom = (roomInfo, callback) => { 
+  const room = new db.Room(roomInfo);
+  room.save(callback);
+}
+
+
+module.exports = { 
+  getRoom,
+  createRoom,
+};
