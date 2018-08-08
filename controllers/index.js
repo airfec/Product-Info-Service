@@ -1,4 +1,4 @@
-//HANDLE DIRECT CHANGE TO DATABASE
+// Contain DB methods
 
 const db = require("../models");
 

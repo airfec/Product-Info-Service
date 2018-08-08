@@ -1,4 +1,4 @@
-//THIS CONNECTS TO MONGO DB
+// Establish connection to MongoDB
 
 const mongoose = require('mongoose');
 const dBIP = 'database:27017';
