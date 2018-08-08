@@ -19,9 +19,7 @@
     "collectCoverage": true,
     "verbose": true,
     "testMatch": [
-      "**/specs/**/*.test.{js,jsx}",
-      "**/__tests__/*.{js}",
-      "**/client/src/components/**/*.test.{js,jsx}"
+      "**/__test__/*.{js}"
     ],
     "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
     "unmockedModulePathPatterns": [
@@ -49,7 +47,8 @@
     "react-dom": "^16.4.1",
     "react-fontawesome": "^1.6.1",
     "react-modal": "^3.5.1",
-    "reactjs-popup": "^1.1.1"
+    "reactjs-popup": "^1.1.1",
+    "supertest": "^3.1.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

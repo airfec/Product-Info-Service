@@ -43,7 +43,7 @@ class Applet extends Component {
     const self = this;
     fetch(`/api/rooms/${id}`)
       .then(response => response.json())
-      .then(data => this.setState({ room: data }))
+      .then(data => this.setState({ room: data }, console.log('data from server', data)))
       .catch(() => {
         console.log("error")});
   }
