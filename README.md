@@ -18,12 +18,38 @@
 
 > Some usage instructions
 
-##CRUD_API
+## CRUD_API
 
 Create
+
+```````````
+const reviewSchema = new Schema ({
+  houseId: Number,
+  reviewTitle: String,
+  reviewText: String,
+  reviewDate: Date,
+  helpfulCount: Number,
+  reportedCount: {inappropriate: Number, hateful: Number, fake: Number},
+  response: {name: String, responseText: String, responseDate: Date, responsePicture: String},
+  rating: {overall: Number, accuracy: Number, location: Number, communication: Number, checkIn: Number, cleanliness: Number, value: Number},
+  group: Number,
+  user: Number
+});
+`````````````
+
+
 Read
+
+>
+
 Update
+
+>
+
 Delete
+
+>
+
 
 
 ## Requirements
@@ -49,12 +75,12 @@ npm install
 
 ## Contributors
 
-Thanks goes to these wonderful people who created the front-end ([emoji key][emojis]):
+Thanks goes to these wonderful people who created the front-end
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
 | [<img src="https://avatars2.githubusercontent.com/u/9955081?s=400&v=4" width="100px;"/><br /><sub><b>Ozge Yurtsever</b></sub>](https://github.com/OzgeYurtsever)<br />[📖](https://github.com/kentcdodds/all-contributors/commits?author=kentcdodds "Documentation")
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors][all-contributors] specification.

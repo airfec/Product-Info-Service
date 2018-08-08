@@ -18,7 +18,7 @@ const getRoom = (roomId, callback) => {
 const postRoom = (dataItem, callback) => {
   db.Room.create(dataItem, (err, room) => {
     if (err) {
-      console.log("error in posting room: ", err);
+      console.log(hh"error in posting room: ", err);
       callback(err);
     }
     callback(null, room);
