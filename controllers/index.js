@@ -21,8 +21,18 @@ const createRoom = (roomInfo, callback) => {
   room.save(callback);
 }
 
+const updateRoom = (newRoom, id, callback) => {
+  db.Room.findByIdAndUpdate(
+    id, 
+    newRoom, 
+    {new: true},
+    callback
+  );
+};
+
 
 module.exports = { 
   getRoom,
   createRoom,
+  updateRoom,
 };

@@ -30,12 +30,17 @@ router.post('/rooms/:id/room', (req, res) => {
 })
 
 //PUT - UPDATE
-// router.put('/rooms/:id/room', (req, res) => {
-//   console.log('Put got triggered');
-//   const changes = req.body;
-//   const id = req.params.id;
-//   ctrt
-// });
+router.put('/rooms/:id/room', (req, res) => {
+  console.log('Put got triggered');
+  const changes = req.body;
+  const id = req.params.id;
+  ctrl.updateRoom(changes, id, (err, room) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.send(room);
+  });
+});
 
 //DELETE
 
