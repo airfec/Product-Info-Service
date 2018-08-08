@@ -30,9 +30,13 @@ const updateRoom = (newRoom, id, callback) => {
   );
 };
 
+const deleteRoom = (id, callback) => {
+  db.Room.findByIdAndRemove(id, callback);
+};
 
 module.exports = { 
   getRoom,
   createRoom,
   updateRoom,
+  deleteRoom,
 };
