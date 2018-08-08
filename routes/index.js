@@ -20,21 +20,21 @@ router.get('/rooms/:id', (req, res) => {
 // CHECK POSTING ERROR CODES
 router.post('/', (req, res) => {
   // console.log('POST-- here inside routes/index', req.params.id);
-  console.log('POST-- data', req.body);
-  // ctrl.postRoom(req.body, (err, data) => {
-  //   if (err) {
-  //     res.status(404).send(err);
-  //   } else {
-  //     res.json(data);
-  //   }
-  // });
+  // console.log('POST-- data', req.body);
+  ctrl.postRoom(req.body, (err, data) => {
+    if (err) {
+      res.status(404).send(err);
+    } else {
+      console.log('successfully posted');
+      res.json(data);
+    }
+  });
 });
 
-// UPDATE/
-// specific to current id
+// UPDATE
 router.put('/rooms/:id', (req, res) => {
-  console.log('PUT-- here inside routes/index', req.params.id);
-  ctrl.updateRoom(req.params.id, (err, data) => {
+  console.log('PUT-- here inside routes/index', req.params.id, req.body);
+  ctrl.updateRoom(req.params.id, req.body, (err, data) => {
     if (err) {
       res.status(404).send(err);
     } else {
