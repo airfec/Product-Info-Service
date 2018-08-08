@@ -23,18 +23,7 @@
 Create
 
 ```````````
-const reviewSchema = new Schema ({
-  houseId: Number,
-  reviewTitle: String,
-  reviewText: String,
-  reviewDate: Date,
-  helpfulCount: Number,
-  reportedCount: {inappropriate: Number, hateful: Number, fake: Number},
-  response: {name: String, responseText: String, responseDate: Date, responsePicture: String},
-  rating: {overall: Number, accuracy: Number, location: Number, communication: Number, checkIn: Number, cleanliness: Number, value: Number},
-  group: Number,
-  user: Number
-});
+
 `````````````
 
 
