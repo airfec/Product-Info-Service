@@ -1,8 +1,6 @@
 const faker = require('faker');
-const mongoose = require('mongoose');
-const db = require('./models/');
-// const Amenity = db.Amenity;
-const Room = db.Room;
+const fs = require('fs');
+const out = fs.createWriteStream('./test.csv');
 
 const PROPERTY_TYPE = [
   'Apartment',
@@ -111,58 +109,45 @@ const populateRandomAmenities = num => {
 };
 
 const createRoom = () => {
-  const data = [];
-  for (let room = 1; room <= 100; room++) {
-    // average length for a sentence
+
+  out.write('room_id, city, type, title, max_guest, subtype, beds, baths, host_username, avatar, short_description, main_description, house_rules_description, highlights, house_rules, cancellations, sleeping_arrangements \n');
+
+  for (let room = 1; room < 1000000; room++) {
+
     const sentenceLength = faker.random.number({ min: 4, max: 10 });
-
+    
+    let sentence = `${room},`;
+    sentence += `${faker.address.city()},`;
+    sentence += `${PROPERTY_TYPE[Math.floor(Math.random() * PROPERTY_TYPE.length)] },`;
+    sentence += `${ faker.lorem.sentences(faker.random.number({ min: 4, max: 8 })) },`;
+    sentence += `${faker.random.number({ min: 2, max: 8 }) },`;
+    sentence += `${faker.random.number({ min: 2, max: 8 }) },`;
+    sentence += `${faker.random.number({ min: 2, max: 8 }) },`;
+    sentence += `${faker.random.number({ min: 1, max: 4 }) },`;
+    sentence += `${faker.name.findName()},`;
+    sentence += `${faker.image.avatar()},`;
+    sentence += `${faker.lorem.sentences(faker.random.number({ min: 2, max: 4 })) },`;
+    sentence += `${faker.lorem.sentences(faker.random.number({ min: 4, max: 10 })) },`;
+    sentence += `${faker.lorem.sentences(faker.random.number({ min: 4, max: 8 })) },`;
+    //highlights
+    sentence += `${faker.lorem.sentences(faker.random.number({ min: 2, max: 4 }))}* ${faker.lorem.sentences(faker.random.number({ min: 4, max: 8 }))},`;
+    //house_rules
     const noOfRules = faker.random.number({ min: 4, max: 10 });
-    const rules = [];
+    let rules = '';
     for (let j = 0; j < noOfRules; j++) {
-      rules.push(faker.lorem.words(faker.random.number({ min: 2, max: 4 })));
+      rules += `${faker.lorem.sentences(faker.random.number({ min: 2, max: 4 }))}* `;
     }
-
+    sentence += `${rules},`;
+    //cancellation
     const cancellationsLength = faker.random.number({ min: 4, max: 8 });
-    const cancelationRules = [];
+    let cancelationRules = '';
     for (let j = 0; j < cancellationsLength; j++) {
-      cancelationRules.push(
-        faker.lorem.words(faker.random.number({ min: 6, max: 10 }))
-      );
+      cancelationRules += `${faker.lorem.sentences(faker.random.number({ min: 6, max: 10 }))}* `;
     }
-
-    const dataItem = {};
-    dataItem.room_id = room;
-    dataItem.city = faker.address.city();
-    dataItem.type =
-      PROPERTY_TYPE[Math.floor(Math.random() * PROPERTY_TYPE.length)];
-    dataItem.title = faker.lorem.words(faker.random.number({ min: 4, max: 8 }));
-    dataItem.max_guest = faker.random.number({ min: 2, max: 8 });
-    dataItem.subtype = faker.random.number({ min: 2, max: 8 });
-    dataItem.beds = faker.random.number({ min: 2, max: 8 });
-    dataItem.baths = faker.random.number({ min: 1, max: 4 });
-    dataItem.host_username = faker.name.findName();
-    dataItem.avatar = faker.image.avatar();
-    dataItem.highlights = [
-      faker.lorem.words(faker.random.number({ min: 2, max: 4 })),
-      faker.lorem.sentences(faker.random.number({ min: 4, max: 8 }))
-    ];
-    dataItem.short_description = faker.lorem.sentences(
-      faker.random.number({ min: 2, max: 4 })
-    );
-    dataItem.main_description = faker.lorem.sentences(
-      faker.random.number({ min: 4, max: 10 })
-    );
-    (dataItem.amenities = populateRandomAmenities(
-      faker.random.number({ min: 6, max: 10 })
-    )),
-      (dataItem.house_rules = rules);
-    dataItem.house_rules_description = faker.lorem.sentences(
-      faker.random.number({ min: 4, max: 8 })
-    );
-    dataItem.cancellations = cancelationRules;
-    dataItem.sleeping_arrangements = [];
-
-    for (let x = 0; x < dataItem.beds; x++) {
+    sentence += `${cancelationRules},`;
+    //sleeping arrangements
+    let beds = faker.random.number({ min: 2, max: 8 });
+    for (let x = 0; x < beds; x++) {
       let bedDetails = '';
       const noOfBed = faker.random.number({ min: 1, max: 2 });
       const typeOfBEd = BED_TYPE[Math.floor(Math.random() * BED_TYPE.length)];
@@ -171,32 +156,12 @@ const createRoom = () => {
       } else {
         bedDetails = `${noOfBed} ${typeOfBEd} ` + 'beds';
       }
-      dataItem.sleeping_arrangements.push(bedDetails);
+      sentence += `${bedDetails}* `;
     }
-
-    const newRoom = new Room(dataItem);
-    const temp = newRoom.save();
-    data.push(temp);
+    out.write(`${sentence}\n`);
   }
 
-  Promise.all(data)
-    .then(results => {
-      console.log(`${results.length} data saved in dB!`);
-    })
-    .catch(err => {
-      console.error(err);
-    })
-    .then(() => {
-      mongoose.connection.close(() => {
-        process.exit(0);
-      });
-    });
 };
 
-db.Room.remove({}).exec(function(err, results) {
-  if (err) {
-    console.error(err);
-    return process.exit(0);
-  }
-  createRoom();
-});
+createRoom();
+
