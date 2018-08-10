@@ -1,6 +1,5 @@
 const faker = require('faker');
 const fs = require('fs');
-const out = fs.createWriteStream('./test.csv');
 
 const PROPERTY_TYPE = [
   'Apartment',
@@ -108,45 +107,57 @@ const populateRandomAmenities = num => {
   return newAmenity;
 };
 
-const createRoom = () => {
+const createAmenities = (start, end) => {
+  const CSV = fs.createWriteStream(`./${start}_amenities.csv`); 
+  for (start; start < end; start++) { 
+    const amenities = populateRandomAmenities(faker.random.number({ min: 4, max: 7 }));
+    for (let i = 0; i < amenities.length; i++) {
+      let amenityRow = '';
+      amenityRow += `${start},`;
+      for (let key in amenities[i]) {
+        amenityRow += `${amenities[i][key]},`
+      }
+      CSV.write(`${amenityRow}\n`);
+    }
+  }
+};
 
-  out.write('room_id, city, type, title, max_guest, subtype, beds, baths, host_username, avatar, short_description, main_description, house_rules_description, highlights, house_rules, cancellations, sleeping_arrangements \n');
-
-  for (let room = 1; room < 1000000; room++) {
-
-    const sentenceLength = faker.random.number({ min: 4, max: 10 });
-    
-    let sentence = `${room},`;
+const createRoom = (start, end) => {
+  const out = fs.createWriteStream(`./${start}.csv`);  
+  let room = end - start;
+  while (room--) {
+    const sentenceLength = faker.random.number({ min: 1, max: 3 });
+    let sentence = `${start},`;
+    sentence += `room${start},`;
     sentence += `${faker.address.city()},`;
-    sentence += `${PROPERTY_TYPE[Math.floor(Math.random() * PROPERTY_TYPE.length)] },`;
-    sentence += `${ faker.lorem.sentences(faker.random.number({ min: 4, max: 8 })) },`;
-    sentence += `${faker.random.number({ min: 2, max: 8 }) },`;
-    sentence += `${faker.random.number({ min: 2, max: 8 }) },`;
-    sentence += `${faker.random.number({ min: 2, max: 8 }) },`;
-    sentence += `${faker.random.number({ min: 1, max: 4 }) },`;
+    sentence += `${PROPERTY_TYPE[Math.floor(Math.random() * PROPERTY_TYPE.length)]},`;
+    sentence += `${ faker.lorem.sentences(faker.random.number({ min: 1, max: 3 }))},`;
+    sentence += `${faker.random.number({ min: 1, max: 4 })},`;
+    sentence += `${faker.random.number({ min: 1, max: 4 })},`;
+    sentence += `${faker.random.number({ min: 1, max: 4 })},`;
+    sentence += `${faker.random.number({ min: 1, max: 4 })},`;
     sentence += `${faker.name.findName()},`;
     sentence += `${faker.image.avatar()},`;
-    sentence += `${faker.lorem.sentences(faker.random.number({ min: 2, max: 4 })) },`;
-    sentence += `${faker.lorem.sentences(faker.random.number({ min: 4, max: 10 })) },`;
-    sentence += `${faker.lorem.sentences(faker.random.number({ min: 4, max: 8 })) },`;
-    //highlights
-    sentence += `${faker.lorem.sentences(faker.random.number({ min: 2, max: 4 }))}* ${faker.lorem.sentences(faker.random.number({ min: 4, max: 8 }))},`;
-    //house_rules
-    const noOfRules = faker.random.number({ min: 4, max: 10 });
+    sentence += `${faker.lorem.sentences(faker.random.number({ min: 1, max: 3 }))},`;
+    sentence += `${faker.lorem.sentences(faker.random.number({ min: 1, max: 3 }))},`;
+    sentence += `${faker.lorem.sentences(faker.random.number({ min: 1, max: 3 }))},`;
+    sentence += `${faker.lorem.sentences(faker.random.number({ min: 1, max: 3 }))}* ${faker.lorem.sentences(faker.random.number({ min: 2, max: 5 }))},`;
+ 
+    const noOfRules = faker.random.number({ min: 1, max: 3 });
     let rules = '';
     for (let j = 0; j < noOfRules; j++) {
-      rules += `${faker.lorem.sentences(faker.random.number({ min: 2, max: 4 }))}* `;
+      rules += `${faker.lorem.sentences(faker.random.number({ min: 1, max: 3 }))}* `;
     }
     sentence += `${rules},`;
-    //cancellation
-    const cancellationsLength = faker.random.number({ min: 4, max: 8 });
+
+    const cancellationsLength = faker.random.number({ min: 1, max: 3 });
     let cancelationRules = '';
     for (let j = 0; j < cancellationsLength; j++) {
-      cancelationRules += `${faker.lorem.sentences(faker.random.number({ min: 6, max: 10 }))}* `;
+      cancelationRules += `${faker.lorem.sentences(faker.random.number({ min: 1, max: 3 }))}* `;
     }
     sentence += `${cancelationRules},`;
-    //sleeping arrangements
-    let beds = faker.random.number({ min: 2, max: 8 });
+
+    let beds = faker.random.number({ min: 1, max: 4 });
     for (let x = 0; x < beds; x++) {
       let bedDetails = '';
       const noOfBed = faker.random.number({ min: 1, max: 2 });
@@ -158,10 +169,7 @@ const createRoom = () => {
       }
       sentence += `${bedDetails}* `;
     }
+    start++
     out.write(`${sentence}\n`);
   }
-
 };
-
-createRoom();
-
