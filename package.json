@@ -13,7 +13,30 @@
     "start:pro": "node generate.js && node server/",
     "react-dev": "webpack -d --watch",
     "test": "jest",
-    "lint": "eslint client controllers server models public specs routes"
+    "lint": "eslint client controllers server models public specs routes",
+    "load_x": "time node --max-old-space-size=9000 ./db/csvDataGeneration.js | gzip -c > ./db/dataTrial1.csv.gz",
+    "load_x1": "time node --max-old-space-size=9000 ./db/generators/generateRoomNames.js | cat > ./db/generators/JSONfiles/testNewUsingCat1.JSON",
+    "load_x2": "time node ./db/generators/amenityGeneration_CSV.js > ./db/generators/CSVFiles/amenities_19.csv",
+    "load0": "time node ./db/generators/infoGeneration_CSV.js > ./db/generators/CSVFiles/info_0.csv",
+    "load1": "time node ./db/generators/infoGeneration_CSV.js > ./db/generators/CSVFiles/info_1.csv",
+    "load2": "time node ./db/generators/infoGeneration_CSV.js > ./db/generators/CSVFiles/info_2.csv",
+    "load3": "time node ./db/generators/infoGeneration_CSV.js > ./db/generators/CSVFiles/info_3.csv",
+    "load4": "time node ./db/generators/infoGeneration_CSV.js > ./db/generators/CSVFiles/info_4.csv",
+    "load5": "time node ./db/generators/infoGeneration_CSV.js > ./db/generators/CSVFiles/info_5.csv",
+    "load6": "time node ./db/generators/infoGeneration_CSV.js > ./db/generators/CSVFiles/info_6.csv",
+    "load7": "time node ./db/generators/infoGeneration_CSV.js > ./db/generators/CSVFiles/info_7.csv",
+    "load8": "time node ./db/generators/infoGeneration_CSV.js > ./db/generators/CSVFiles/info_8.csv",
+    "load9": "time node ./db/generators/infoGeneration_CSV.js > ./db/generators/CSVFiles/info_9.csv",
+    "load10": "time node ./db/generators/infoGeneration_CSV.js > ./db/generators/CSVFiles/info_10.csv",
+    "load11": "time node ./db/generators/infoGeneration_CSV.js > ./db/generators/CSVFiles/info_11.csv",
+    "load12": "time node ./db/generators/infoGeneration_CSV.js > ./db/generators/CSVFiles/info_12.csv",
+    "load13": "time node ./db/generators/infoGeneration_CSV.js > ./db/generators/CSVFiles/info_13.csv",
+    "load14": "time node ./db/generators/infoGeneration_CSV.js > ./db/generators/CSVFiles/info_14.csv",
+    "load15": "time node ./db/generators/infoGeneration_CSV.js > ./db/generators/CSVFiles/info_15.csv",
+    "load16": "time node ./db/generators/infoGeneration_CSV.js > ./db/generators/CSVFiles/info_16.csv",
+    "load17": "time node ./db/generators/infoGeneration_CSV.js > ./db/generators/CSVFiles/info_17.csv",
+    "load18": "time node ./db/generators/infoGeneration_CSV.js > ./db/generators/CSVFiles/info_18.csv",
+    "load19": "time node ./db/generators/infoGeneration_CSV.js > ./db/generators/CSVFiles/info_19.csv"
   },
   "jest": {
     "collectCoverage": true,
@@ -29,7 +52,7 @@
       "enzyme",
       "jest-enzyme"
     ],
-    "transformIgnorePatterns": [
+   "transformIgnorePatterns": [
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
     ],
     "testURL": "http://localhost/",
@@ -39,6 +62,7 @@
     ]
   },
   "dependencies": {
+    "an-array-of-english-words": "^1.3.1",
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
