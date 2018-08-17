@@ -85,12 +85,14 @@ const createRoom = () => {
 // var num = 1 + (16 * 500000); //D
 // var num = 1 + (17 * 500000); //D
 // var num = 1 + (18 * 500000); //D
-var num = 1 + (19 * 500000); //
+// var num = 1 + (19 * 500000); //
 
 const generateInfoCSV = function() {
   for(var i = num; i < num + 50000; i++) {
     let room = createRoom();
-    console.log(`${i},${roomName[i - 1]},${room.city},${room.type},${room.title},${room.max_guest},${room.subtype},${room.beds},${room.baths},${room.host_username},${room.avatar},${room.short_description},${room.main_description},${JSON.stringify(room.house_rules).replace(/,/g ,"*")},${room.house_rules_description},${JSON.stringify(room.cancellations).replace(/,/g ,"*")},${JSON.stringify(room.sleeping_arrangements).replace(/,/g ,"*")}`);
+    console.log(`${i},${roomName[i - 1]},${room.city},${room.type},${room.title},${room.max_guest},${room.subtype},${room.beds},${room.baths},${room.host_username},${room.avatar},${
+      room.short_description},${room.main_description},${JSON.stringify(room.house_rules).replace(/,/g ,"*")},${room.house_rules_description},${JSON.stringify(roo
+        m.cancellations).replace(/,/g ,"*")},${JSON.stringify(room.sleeping_arrangements).}`);
   }
   num = i;
 };
