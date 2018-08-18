@@ -1,18 +1,32 @@
 // Contain DB methods
 
-const db = require("../models");
+const { pool } = require("../models");
+const { adapter } = require("./queryAdapter");
+
 
 // Method retereives document
 const getRoom = (roomId, callback) => {
-  let query = db.Room.findOne({ room_id: roomId });
-  query.exec((err, room) => {
+  const query = {
+    name: 'fetch-room',
+    text: `SELECT page_info.*, ARRAY_TO_STRING((SELECT ARRAY_AGG('[\"' ||  amenity_type ||'\",\"'|| name ||'\",\"'|| COALESCE(icon, '0')  ||'\",\"'|| COALESCE(explanation, '0') || '\"]') FROM amenities WHERE page_info.room_id = amenities.room_id), ',') AS amenities FROM page_info WHERE page_info.room_id = $1;`,
+    values: [roomId]
+  }
+
+  pool.query(query, (err, room) => {
     if (err) {
       console.log("error in getting room: ", err);
       callback(err);
     }
-    callback(null, room);
+    // console.log(room);
+    // console.log(adapter(room))
+    // callback(null, adapter(room));
+    // callback(null, room);
   });
 };
+
+
+
+
 
 // Method adds document
 const postRoom = (dataItem, callback) => {
