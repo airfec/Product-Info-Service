@@ -1,8 +1,3 @@
-/*
-func (req, res) {
-
-}
-*/
 const pool = require("../models/index.js");
 
 const getRoom = (roomId, callback) => {

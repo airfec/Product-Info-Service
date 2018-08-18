@@ -23,6 +23,8 @@ coverage
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
 dist/
-
+# NEWRELIC
+newrelic.js
+newrelic_agent.log
 # AWS
 aws-keys.json
