@@ -48,12 +48,14 @@
     "faker": "^4.1.0",
     "jquery": "^3.3.1",
     "mongoose": "^5.2.4",
+    "newrelic": "^4.8.0",
     "pg": "^7.4.3",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-fontawesome": "^1.6.1",
     "react-modal": "^3.5.1",
-    "reactjs-popup": "^1.1.1"
+    "reactjs-popup": "^1.1.1",
+    "siege": "^0.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -81,6 +83,7 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-test-renderer": "^16.4.1",
+    "skew-normal-random": "^1.0.0",
     "style-loader": "^0.21.0",
     "webpack": "^4.16.1",
     "webpack-cli": "^3.0.8"

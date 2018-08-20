@@ -1,5 +1,4 @@
-// Handle static page response
-// Relay requests to routes
+require('newrelic');
 
 const express = require('express');
 const routes = require('./../routes');

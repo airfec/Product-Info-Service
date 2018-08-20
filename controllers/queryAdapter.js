@@ -1,9 +1,6 @@
 const adapter = (room) => {
-  // console.log(room.rows);
   room = room.rows[0];
-  console.log('\n\n\n\n\n>>>>>>>>>>');
-  // console.log(room);
-
+  console.log(room);
   newRoom = {
     room_id: room.room_id,
     room_name: room.room_name,
@@ -11,7 +8,7 @@ const adapter = (room) => {
     type: room.type,
     title: room.title,
     max_guests: room.max_guests,
-    subtype: Number(room.subtype),
+    subtype: room.subtype,
     beds: room.beds,
     baths: room.baths,
     host_username: room.host_username,
@@ -24,8 +21,7 @@ const adapter = (room) => {
     sleeping_arrangements: JSON.parse("[\"" + room.sleeping_arrangements.replace(/\*/g ,"\",\"").slice(1,-1) + "\"]"),
     amenities: JSON.parse("[" + room.amenities + "]"),
   }
-  // console.log(newRoom);
-  return JSON.stringify(newRoom);
+  return (newRoom);
 }
 
 module.exports = {

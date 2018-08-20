@@ -8,7 +8,7 @@ const { adapter } = require("./queryAdapter");
 const getRoom = (roomId, callback) => {
   const query = {
     name: 'fetch-room',
-    text: `SELECT page_info.*, ARRAY_TO_STRING((SELECT ARRAY_AGG('[\"' ||  amenity_type ||'\",\"'|| name ||'\",\"'|| COALESCE(icon, '0')  ||'\",\"'|| COALESCE(explanation, '0') || '\"]') FROM amenities WHERE page_info.room_id = amenities.room_id), ',') AS amenities FROM page_info WHERE page_info.room_id = $1;`,
+    text: `SELECT page_info.*, ARRAY_TO_STRING((SELECT ARRAY_AGG('{\"amenityType\":\"' || amenity_type ||'\",\"name\":\"'|| name ||'\",\"icon\":\"'|| COALESCE(icon, '0')  ||'\",\"explanation\":\"'|| COALESCE(explanation, '0') || '\"}') FROM amenities WHERE page_info.room_id = amenities.room_id), ',') AS amenities FROM page_info WHERE page_info.room_id = $1;`,
     values: [roomId]
   }
 
@@ -17,10 +17,8 @@ const getRoom = (roomId, callback) => {
       console.log("error in getting room: ", err);
       callback(err);
     }
-    // console.log(room);
-    // console.log(adapter(room))
     // callback(null, adapter(room));
-    // callback(null, room);
+    callback(null, room);
   });
 };
 

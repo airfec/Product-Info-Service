@@ -6,7 +6,7 @@ const router = app.Router();
 
 // READ
 router.get('/rooms/:id', (req, res) => {
-  console.log('here inside routes/index', req.params.id);
+  // console.log('here inside routes/index', req.params.id);
   ctrl.getRoom(req.params.id, (err, data) => {
     if (err) {
       res.status(404).send(err);

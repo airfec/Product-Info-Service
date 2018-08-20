@@ -3,6 +3,167 @@ for(var i = 0; i < 100; i++) {
     console.log(faker.image.avatar());
 }
 
+{
+    "highlights": [
+        "molestiae iusto",
+        "Cupiditate ex deleniti sed illo explicabo non vero nihil non. Nobis esse non ut voluptas ut possimus deleniti. Maxime nostrum et tenetur. Consequatur ea sunt cupiditate et hic incidunt. Sit voluptatem ut ut consequatur neque impedit modi provident et. Sapiente fugit soluta provident debitis consequatur."
+    ],
+    "house_rules": [
+        "et illum enim",
+        "aliquid sint",
+        "omnis velit",
+        "facere autem dolores",
+        "qui itaque saepe",
+        "ad quia est ipsam",
+        "suscipit neque voluptatem minus",
+        "aut voluptate est",
+        "veritatis sint sit"
+    ],
+    "cancellations": [
+        "voluptas omnis perferendis omnis nostrum sunt",
+        "suscipit ex dolorem mollitia id illo at aperiam architecto",
+        "iste sed temporibus veritatis consequatur id voluptatem",
+        "et perspiciatis eos voluptate ratione accusamus",
+        "eaque culpa eos omnis qui dignissimos earum et corrupti recusandae",
+        "odio rerum impedit nisi neque nesciunt neque corrupti vitae quam",
+        "perferendis velit id ipsa qui quos quo est impedit vero"
+    ],
+    "sleeping_arrangements": [
+        "2 queen beds",
+        "1 single bed",
+        "2 king beds",
+        "2 single beds"
+    ],
+    "_id": "5b786639d6c04157584a6149",
+    "room_id": 1,
+    "city": "Ilianahaven",
+    "type": "Mill",
+    "title": "consequuntur tempore odit earum et est ut",
+    "max_guest": 7,
+    "subtype": "3",
+    "beds": 4,
+    "baths": 4,
+    "host_username": "Eve Watsica",
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/sircalebgrove/128.jpg",
+    "short_description": "Nesciunt impedit minus quia quia nihil. Adipisci deleniti dolor qui et. Odit eveniet consequatur consequatur voluptas ad et consectetur doloremque sequi.",
+    "main_description": "Minus voluptatem aut atque exercitationem eius odit eius. Fugiat et fugit tenetur occaecati officiis voluptas. Aut quisquam officiis corporis possimus omnis illum ut. Quis dicta ut nihil.",
+    "amenities": [
+        {
+            "_id": "5b786639d6c04157584a6159",
+            "amenityType": "Basic",
+            "name": "Wifi",
+            "icon": "fa fa-wifi",
+            "explanation": ""
+        },
+        {
+            "_id": "5b786639d6c04157584a6158",
+            "amenityType": "Basic",
+            "name": "TV",
+            "icon": "fa fa-television",
+            "explanation": ""
+        },
+        {
+            "_id": "5b786639d6c04157584a6157",
+            "amenityType": "Basic",
+            "name": "Hot water",
+            "icon": "fa fa-shower",
+            "explanation": ""
+        },
+        {
+            "_id": "5b786639d6c04157584a6156",
+            "amenityType": "Dining",
+            "name": "Kitchen",
+            "icon": "fa fa-cutlery",
+            "explanation": "Space where guests can cook their own meals"
+        },
+        {
+            "_id": "5b786639d6c04157584a6155",
+            "amenityType": "Facilities",
+            "name": "Free parking on premises",
+            "icon": "fa fa-car",
+            "explanation": ""
+        },
+        {
+            "_id": "5b786639d6c04157584a6154",
+            "amenityType": "Basic",
+            "name": "Laptop friendly workspace",
+            "icon": "fa fa-laptop",
+            "explanation": "A table or desk with space for a laptop and a chair that’s comfortable to work in"
+        },
+        {
+            "_id": "5b786639d6c04157584a6153",
+            "amenityType": "Basic",
+            "name": "Air conditioning",
+            "icon": "",
+            "explanation": ""
+        },
+        {
+            "_id": "5b786639d6c04157584a6152",
+            "amenityType": "Safety features",
+            "name": "Carbon monoxide detector",
+            "icon": "",
+            "explanation": ""
+        },
+        {
+            "_id": "5b786639d6c04157584a6151",
+            "amenityType": "Bed and bath",
+            "name": "Hangers",
+            "icon": "",
+            "explanation": ""
+        },
+        {
+            "_id": "5b786639d6c04157584a6150",
+            "amenityType": "Dining",
+            "name": "Breakfast",
+            "icon": "",
+            "explanation": ""
+        },
+        {
+            "_id": "5b786639d6c04157584a614f",
+            "amenityType": "Basic",
+            "name": "Private entrance",
+            "icon": "",
+            "explanation": "Separate street or building entrance"
+        },
+        {
+            "_id": "5b786639d6c04157584a614e",
+            "amenityType": "Bed and bath",
+            "name": "Washer",
+            "icon": "",
+            "explanation": ""
+        },
+        {
+            "_id": "5b786639d6c04157584a614d",
+            "amenityType": "Bed and bath",
+            "name": "Hair dryer",
+            "icon": "",
+            "explanation": ""
+        },
+        {
+            "_id": "5b786639d6c04157584a614c",
+            "amenityType": "Bed and bath",
+            "name": "Bed linens",
+            "icon": "",
+            "explanation": ""
+        },
+        {
+            "_id": "5b786639d6c04157584a614b",
+            "amenityType": "Safety features",
+            "name": "Smoke detector",
+            "icon": "",
+            "explanation": ""
+        },
+        {
+            "_id": "5b786639d6c04157584a614a",
+            "amenityType": "Bed and bath",
+            "name": "Shampoo",
+            "icon": "",
+            "explanation": ""
+        }
+    ],
+    "house_rules_description": "Et qui odio sunt nisi ut a mollitia. Qui ad sunt. Minus aut autem. Itaque est doloribus voluptate ab beatae.",
+    "__v": 0
+}
 // {
 //     "highlights": [
 //         "quas vitae sed aut",
