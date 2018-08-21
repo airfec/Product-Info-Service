@@ -8,7 +8,6 @@ const bodyParser = require('body-parser');
 const app = express();
 
 const jsonParser = bodyParser.json();
-const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.set('port', process.env.PORT || 3003); //prod vs test environment switch
 
