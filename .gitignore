@@ -29,3 +29,6 @@ aws-keys.json
 
 # Large files
 db/generators/JSONfiles/
+
+# Keys
+keys.js
