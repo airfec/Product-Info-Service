@@ -13,25 +13,7 @@ class Applet extends Component {
     this.state = {
       room: {}
     };
-
-    console.log('applet', this.state.room);
   }
-
-  // componentDidMount() {
-  //   this.getData();
-  //   // console.log('state now: ', this.state.room);
-  // }
-
-  // getData() {
-  //   const id = parseInt(window.location.pathname.split('/').pop());
-  //   const self = this;
-  //   $.get(`/api/rooms/${id}`, function(data) {
-  //     console.log('success got data', data);
-  //     self.setState({ room: data });
-  //   }).fail(function() {
-  //     alert('error');
-  //   });
-  // }
 
   componentDidMount() {
     this.getData();
@@ -62,8 +44,6 @@ class Applet extends Component {
 
 
   render() {
-
-    console.log(this.state.room)
     return (
       <div>
         <Summary className="summary section" room={this.state.room} />

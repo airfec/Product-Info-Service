@@ -8,7 +8,6 @@ class Tile extends Component {
   }
 
   render() {
-    console.log('tile', this.props);
     let tiles = [];
     let roomNo = this.props.start + 1;
     for (let j = 0; j < this.props.detail.length; j++) {
@@ -41,7 +40,6 @@ class Tile extends Component {
       tiles.push(tile);
       roomNo++;
     }
-    console.log();
     return (
       <div className="tile--display">
         <div
