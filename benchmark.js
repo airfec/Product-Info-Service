@@ -125,7 +125,86 @@
 
 
 ///////////////
+
+// const rand_skewed_distribution = (min, max, p) => Math.floor(min + (max - min) * Math.pow(Math.random(), p));
+// let count = 10000000;
+// let p = .095;
+
+// console.log('p, count, hits, %');
+
+// for (p; p <= .2; p += .005) {
+//   var obj = {};
+//   var redisPropCount = 0;
+//   var redisCount = 0;
+
+//   for (let i = 0; i < count; i += 1) {
+//     let rand = rand_skewed_distribution(0, 10000000, p);
+//       if(obj[rand] !== undefined) {
+//         obj[rand] = obj[rand] + 1;
+//       } else {
+//         obj[rand] = 0;
+//       }
+//   }
+
+//   for(var prop in obj) {
+//     if (obj[prop] > 0) {
+//       redisPropCount++;
+//       redisCount += (obj[prop]);
+//     }
+//   }
+
+
+//   // console.log('final redis count', redisCount);
+//   // console.log('redis prop count', redisPropCount);
+//   console.log(p + 'p, ', redisPropCount + ' count, ', redisCount + ' hits, ', (redisCount/count * 100) + '%')
+// }
+
+//  value, room count, room hits, % hits
+// 0.005,  241876 count,  9709194 hits,  97.09194%
+// 0.010,  412994 count,  9490922 hits,  94.90922%
+// 0.015,  558502 count,  9300088 hits,  93.00088%
+// 0.020,  686533 count,  9127607 hits,  91.27607%
+// 0.025,  801176 count,  8968655 hits,  89.68655%
+// 0.030,  907026 count,  8820186 hits,  88.20186%
+// 0.035,  1003932 count,  8681363 hits,  86.81363%
+// 0.040,  1095156 count,  8548507 hits,  85.48507%
+// 0.045,  1179237 count,  8423439 hits,  84.23439%
+// 0.050,  1258188 count,  8304972 hits,  83.049721%
+// 0.055,  1333491 count,  8189900 hits,  81.899%
+// 0.060,  1404171 count,  8080307 hits,  80.80307%
+// 0.065,  1469838 count,  7975964 hits,  79.75964%
+// 0.070,  1534897 count,  7873209 hits,  78.73209%
+// 0.075,  1594682 count,  7775182 hits,  77.751821%
+// 0.080,  1651613 count,  7680765 hits,  76.807651%
+// 0.085,  1705321 count,  7589677 hits,  75.89677%
+// 0.090,  1757147 count,  7500728 hits,  75.00728%
+// 0.095,  1806542 count,  7415511 hits,  74.155111%
+// 0.100,  1853646 count,  7331828 hits,  73.31828%
+// 0.105,  1898182 count,  7251714 hits,  72.51714%
+// 0.110,  1940911 count,  7173285 hits,  71.73285%
+// 0.115,  1982018 count,  7097378 hits,  70.97379%
+// 0.120,  2020034 count,  7022264 hits,  70.22264%
+// 0.125,  2056553 count,  6949933 hits,  69.49933%
+// 0.130,  2092225 count,  6880880 hits,  68.8088%
+// 0.135,  2126280 count,  6811978 hits,  68.119%
+// 0.140,  2158021 count,  6744224 hits,  67.44224%
+// 0.145,  2189356 count,  6678539 hits,  66.78539%
+// 0.150,  2219302 count,  6617404 hits,  66.17404%
+// 0.155,  2245762 count,  6554210 hits,  65.5421%
+// 0.160,  2272905 count,  6494316 hits,  64.94316%
+// 0.165,  2298366 count,  6435197 hits,  64.351901%
+// 0.170,  2321318 count,  6378903 hits,  63.78903004%
+// 0.175,  2345506 count,  6320892 hits,  63.20892%
+// 0.180,  2366575 count,  6265493 hits,  62.65493%
+// 0.185,  2387273 count,  6212589 hits,  62.12589%
+// 0.190,  2407583 count,  6159608 hits,  61.59608%
+// 0.195,  2424812 count,  6109377 hits,  61.0937706%
+
 ///////////////
+
+
+
+
 
 const siege = require("siege");
 let sieger = siege().on(3003);
@@ -135,19 +214,12 @@ const rand_skewed_distribution = (min, max, p) => Math.floor(min + (max - min) *
 let count = 100000;
 
 for (let i = 0; i < count; i += 1) {
-  randomNumbers.push(rand_skewed_distribution(0, 10000000, .03));
+  randomNumbers.push(rand_skewed_distribution(0, 10000000, .125));
 }
 for (let i = 0; i < randomNumbers.length; i += 1) {
   sieger = sieger.for(1).times.get(`/api/rooms/${randomNumbers[i]}`);
 }
 
 sieger.attack();
-
-
-
-
-
-
-
 
 
