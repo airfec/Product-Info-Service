@@ -6,7 +6,6 @@ const router = app.Router();
 
 // READ //implement /productinfo
 router.get('/rooms/:id/productinfo', (req, res) => {
-  // console.log('here inside routes/index', req.params.id);
   ctrl.getRoom(req.params.id, (err, data) => {
     if (err) {
       res.status(404).send(err);
