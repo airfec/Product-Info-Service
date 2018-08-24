@@ -7,7 +7,6 @@ import Rules from './../Rules/Rules.js';
 import Cancellation from './../Cancellations/Cancellation.js';
 import Amenities from './../Amenities/Amenities.js';
 
-
 class Applet extends Component {
   constructor(props) {
     super(props);
@@ -41,12 +40,26 @@ class Applet extends Component {
   getData() {
     const id = parseInt(window.location.pathname.split('/').pop());
     const self = this;
-    fetch(`/api/rooms/${id}`)
+    fetch(`/api/rooms/${id}/productinfo`)
       .then(response => response.json())
-      .then(data => this.setState({ room: data }))
+      .then(data => this.setState({ room: self.adapter(data) }))
       .catch(() => {
         console.log("error")});
   }
+
+   adapter(room) {
+    room = room.rows[0];
+    room.house_rules = JSON.parse("[\"" + room.house_rules.replace(/\*/g ,"\",\"").slice(1,-1) + "\"]");
+    room.cancellations = JSON.parse("[\"" + room.cancellations.replace(/\*/g ,"\",\"").slice(1,-1) + "\"]");
+    room.sleeping_arrangements = JSON.parse("[\"" + room.sleeping_arrangements.replace(/\*/g ,"\",\"").slice(1,-1) + "\"]");
+    room.amenities = JSON.parse("[" + room.amenities + "]");
+    room.highlights = [
+      "molestiae iusto",
+      "Cupiditate ex deleniti sed illo explicabo non vero nihil non. Nobis esse non ut voluptas ut possimus deleniti. Maxime nostrum et tenetur. Consequatur ea sunt cupiditate et hic incidunt. Sit voluptatem ut ut consequatur neque impedit modi provident et. Sapiente fugit soluta provident debitis consequatur."
+    ];
+    return room;
+  }
+
 
   render() {
 
