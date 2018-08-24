@@ -1,4 +1,7 @@
 const adapter = (room) => {
+  console.log('DATA', room);
+
+
   room = room.rows[0];
   console.log(room);
   newRoom = {

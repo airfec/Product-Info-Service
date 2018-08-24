@@ -3,6 +3,11 @@
 const { pool } = require("../models");
 const { adapter } = require("./queryAdapter");
 
+const redis = require('redis');
+const client = redis.createClient({ socket_keepalive: true });
+client.on("error", function (err) {
+    console.log("Error " + err);
+});
 
 // Method retereives document
 const getRoom = (roomId, callback) => {
@@ -12,17 +17,27 @@ const getRoom = (roomId, callback) => {
     values: [roomId]
   }
 
-  pool.query(query, (err, room) => {
+  client.get(roomId, (err, reply) => {
     if (err) {
-      console.log("error in getting room: ", err);
       callback(err);
-    }
-    // callback(null, adapter(room));
-    callback(null, room);
-  });
-};
-
-
+    } else if (reply !== null) {
+      callback(null, JSON.parse(reply));
+    } else {
+      pool.query(query, (err, room) => {
+        if (err) {
+          callback(err);
+        } else {
+          callback(null, room);
+          client.set(roomId, JSON.stringify(room), (err, reply) => {
+            if (err) {
+              console.log(err);
+            }
+          });//client
+        }
+      });//pool query
+    }//else
+  });//client get
+};//getRoom
 
 
 
